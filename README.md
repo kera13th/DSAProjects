@@ -25,6 +25,29 @@ The LMS database follows a relational database model and is composed of several 
 Stores information about books in the library.
 Fields include ISBN, title, author ID, category ID, publication year, and available copies.
 
++------------------+--------------+-----------------------+--------------+
+| Column Name      | Data Type    | Description           | Constraints  |
++------------------+--------------+-----------------------+--------------+
+| BookOrderNumber  | NVARCHAR(20) | Order number of book  | NOT NULL     |
+|                  |              | issuance              |              |
++------------------+--------------+-----------------------+--------------+
+| BookID           | BIGINT       | Unique identifier for | NULL         |
+|                  |              | the book being issued |              |
++------------------+--------------+-----------------------+--------------+
+| UserID           | BIGINT       | Unique identifier for | NULL         |
+|                  |              | the user or borrower   |              |
++------------------+--------------+-----------------------+--------------+
+| IssuanceDate     | DATETIME     | Date and time when    | NULL         |
+|                  |              | the book was issued   |              |
++------------------+--------------+-----------------------+--------------+
+| ReturnDate       | DATETIME     | Date and time when    | NULL         |
+|                  |              | the book was returned |              |
++------------------+--------------+-----------------------+--------------+
+| DueDate          | DATETIME     | Due date for          | NULL         |
+|                  |              | returning the book    |              |
++------------------+--------------+-----------------------+--------------+
+
+
 # 4.2. Genre
 Stores information about book authors.
 Fields include author ID, first name, and last name.
