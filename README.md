@@ -20,11 +20,11 @@ The LMS database follows a relational database model and is composed of several 
 
 # 4. Tables and Descriptions
 
-# 4.1. Books
+## 4.1. Books
 
 Stores information about books in the library.
 Fields include ISBN, title, author ID, category ID, publication year, and available copies.
-
+```
 +------------------+--------------+-----------------------+--------------+
 | Column Name      | Data Type    | Description           | Constraints  |
 +------------------+--------------+-----------------------+--------------+
@@ -46,21 +46,21 @@ Fields include ISBN, title, author ID, category ID, publication year, and availa
 | DueDate          | DATETIME     | Due date for          | NULL         |
 |                  |              | returning the book    |              |
 +------------------+--------------+-----------------------+--------------+
+```
 
-
-# 4.2. Genre
+## 4.2. Genre
 Stores information about book authors.
 Fields include author ID, first name, and last name.
 
-# 4.3. Patrons
+## 4.3. Patrons
 Stores information about library patrons.
 Fields include patron ID, first name, last name, contact information.
 
-# 4.4. Transactions
+## 4.4. Transactions
 Records transactions related to book checkouts and returns.
 Fields include transaction ID, book ID, patron ID, checkout date, return date.
 
-# 4.5. Categories
+## 4.5. Categories
 Categorizes books into genres or categories.
 Fields include category ID and category name.
 
