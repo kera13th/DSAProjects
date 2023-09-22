@@ -86,13 +86,13 @@ Select TOP 5 Title, Author, COUNT(*) AS MostBorrowedBook FROM BookIssuance bi
 JOIN Books b ON bi.BookID = b.BookID
 JOIN Genre g ON g.GenreID = b.GenreID
 GROUP BY Title, GenreName, Author 
-HAVING GenreName = 'History'
+HAVING GenreName = 'History';
 ```
 
 ```
 SELECT BookOrderNumber,COUNT(BookOrderNumber) FROM BookIssuance
 GROUP BY BookOrderNumber
-HAVING COUNT(BookOrderNumber) > 2
+HAVING COUNT(BookOrderNumber) > 2;
 ```
 
 # 7. Set Access Control (DCL)
