@@ -26,27 +26,52 @@ The LMS database follows a relational database model and is composed of several 
 Stores information about books in the library.
 Fields include ISBN, title, author ID, category ID, publication year, and available copies.
 ```
-+------------------+--------------+-----------------------+--------------+
-| Column Name      | Data Type    | Description           | Constraints  |
-+------------------+--------------+-----------------------+--------------+
-| BookOrderNumber  | NVARCHAR(20) | Order number of book  | NOT NULL     |
-|                  |              | issuance              |              |
-+------------------+--------------+-----------------------+--------------+
-| BookID           | BIGINT       | Unique identifier for | NULL         |
-|                  |              | the book being issued |              |
-+------------------+--------------+-----------------------+--------------+
-| UserID           | BIGINT       | Unique identifier for | NULL         |
-|                  |              | the user or borrower   |              |
-+------------------+--------------+-----------------------+--------------+
-| IssuanceDate     | DATETIME     | Date and time when    | NULL         |
-|                  |              | the book was issued   |              |
-+------------------+--------------+-----------------------+--------------+
-| ReturnDate       | DATETIME     | Date and time when    | NULL         |
-|                  |              | the book was returned |              |
-+------------------+--------------+-----------------------+--------------+
-| DueDate          | DATETIME     | Due date for          | NULL         |
-|                  |              | returning the book    |              |
-+------------------+--------------+-----------------------+--------------+
++------------+----------------+----------------+-------------------+
+|   Column   |   Data Type    |  Description   |   Constraints     |
++------------+----------------+----------------+-------------------+
+|            |                |                |                   |
+|  BookID    |     BIGINT     | Unique         |   NOT NULL        |
+|            |                | identifier for |                   |
+|            |                | the book.      |                   |
+|------------|----------------|----------------|-------------------|
+|  Title     | NVARCHAR(350)  | The title of   |   NOT NULL        |
+|            |                | the book.      |                   |
+|------------|----------------|----------------|-------------------|
+|  Author    | NVARCHAR(300)  | The author of  |   NOT NULL        |
+|            |                | the book.      |                   |
+|------------|----------------|----------------|-------------------|
+|  ISBN      | NVARCHAR(30)   | The            |   NOT NULL        |
+|            |                | International  |                   |
+|            |                | Standard Book  |                   |
+|            |                | Number (ISBN). |                   |
+|------------|----------------|----------------|-------------------|
+|  GenreID   |     BIGINT     | Unique         |   NOT NULL        |
+|            |                | identifier for |                   |
+|            |                | the genre of   |                   |
+|            |                | the book.      |                   |
+|------------|----------------|----------------|-------------------|
+|  LangCode  | NVARCHAR(30)   | The language   |                   |
+|            |                | code of the    |                   |
+|            |                | book.          |                   |
+|------------|----------------|----------------|-------------------|
+|  PageNum   |     BIGINT     | The number of  |                   |
+|            |                | pages in the   |                   |
+|            |                | book.          |                   |
+|------------|----------------|----------------|-------------------|
+|  PubDate   | NVARCHAR(300)  | The            |                   |
+|            |                | publication    |                   |
+|            |                | date of the    |                   |
+|            |                | book.          |                   |
+|------------|----------------|----------------|-------------------|
+|  Publisher | NVARCHAR(300)  | The publisher  |                   |
+|            |                | of the book.   |                   |
+|------------|----------------|----------------|-------------------|
+|  Copies    |     INT        | The number of  |                   |
+|            |                | copies         |                   |
+|            |                | available for  |                   |
+|            |                | the book.      |                   |
+|            |                |                |                   |
++------------+----------------+----------------+-------------------+
 ```
 
 ### 4.2. Genre
@@ -58,6 +83,30 @@ Stores information about library patrons.
 Fields include patron ID, first name, last name, contact information.
 
 ### 4.4. Transactions
+
+```
++------------------+--------------+-----------------------+--------------+
+| Column Name      | Data Type    | Description           | Constraints  |
++------------------+--------------+-----------------------+--------------+
+| BookOrderNumber  | NVARCHAR(20) | Order number of book  | NOT NULL     |
+|                  |              | issuance              |              |
++------------------+--------------+-----------------------+--------------+
+| BookID           | BIGINT       | Unique identifier for | NULL         |
+|                  |              | the book being issued |              |
++------------------+--------------+-----------------------+--------------+
+| UserID           | BIGINT       | Unique identifier for | NULL         |
+|                  |              | the user or borrower  |              |
++------------------+--------------+-----------------------+--------------+
+| IssuanceDate     | DATETIME     | Date and time when    | NULL         |
+|                  |              | the book was issued   |              |
++------------------+--------------+-----------------------+--------------+
+| ReturnDate       | DATETIME     | Date and time when    | NULL         |
+|                  |              | the book was returned |              |
++------------------+--------------+-----------------------+--------------+
+| DueDate          | DATETIME     | Due date for          | NULL         |
+|                  |              | returning the book    |              |
++------------------+--------------+-----------------------+--------------+
+```
 Records transactions related to book checkouts and returns.
 Fields include transaction ID, book ID, patron ID, checkout date, return date.
 
