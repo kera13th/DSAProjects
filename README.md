@@ -21,7 +21,7 @@ The LMS database follows a relational database model and is composed of several 
 
 ### 4. Tables and Descriptions
 
-### Book Table
+#### Book Table
 
 | **Column**       | **Data Type**       | **Description**                                     | **Constraints**                |
 |------------------|---------------------|-----------------------------------------------------|--------------------------------|
@@ -36,21 +36,21 @@ The LMS database follows a relational database model and is composed of several 
 | Publisher        | NVARCHAR(300)       | The publisher of the book.                        |                                |
 | Copies           | INT                 | The number of copies available for the book.       |                                |
 
-### Genre Table
+#### Genre Table
 
 | **Column**   | **Data Type**  | **Description**                 | **Constraints**  |
 |--------------|----------------|---------------------------------|------------------|
 | GenreID      | BIGINT         | Unique identifier for genres.    | NOT NULL         |
 | GenreName    | NVARCHAR(60)   | Name of the genre.              |                  |
 
-### Membership Table
+#### Membership Table
 
 | **Column**     | **Data Type**  | **Description**                     | **Constraints**  |
 |----------------|----------------|-------------------------------------|------------------|
 | MembershipID   | NVARCHAR(100) | Unique identifier for memberships.   | NOT NULL         |
 | MembershipType | NVARCHAR(50)  | Type of membership.                 | NOT NULL         |
 
-### Patron Table
+#### Patron Table
 
 | **Column**    | **Data Type**   | **Description**                      | **Constraints**                |
 |---------------|-----------------|--------------------------------------|--------------------------------|
@@ -67,7 +67,7 @@ The LMS database follows a relational database model and is composed of several 
 | AddressLine1  | NVARCHAR(120)   | Address Line 1 of the patron.       |                                |
 | AddressLine2  | NVARCHAR(120)   | Address Line 2 of the patron.       |                                |
 
-### BookIssuance Table
+#### BookIssuance Table
 
 | **Column**        | **Data Type**  | **Description**                          | **Constraints**                |
 |-------------------|----------------|------------------------------------------|--------------------------------|
