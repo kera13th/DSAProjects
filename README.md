@@ -222,6 +222,7 @@ VALUES
 (3,'Librarian'),
 (4,'Database Admin');
 ```
+![Membership Table Screenshot](https://drive.google.com/file/d/17Tx-EjiSkyB_yjQayyRNLyPTewwHLozU/view?pli=1)
 
 #### :minidisc: Populating Genre Table
 
@@ -232,8 +233,10 @@ VALUES
 (2,'Children’s Fiction'),
 (3,'Classic Fiction')
 ```
+![Genre Table Screenshot](https://drive.google.com/uc?export=download&id=17Sl3Na8nCvZ2Abc-OPO3J309nHijB3BA)
 
-For complete SQL Code, please refer to this link
+
+##### For complete SQL Code, please refer to this link
 [Populate Tables Script](https://github.com/kera13th/projects/edit/LMS-Database/populatetables_script)
 
 ## 6. Sample Queries
