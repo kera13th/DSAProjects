@@ -242,14 +242,17 @@ VALUES
 ## 6. Sample Queries
 
 ```
-Select TOP 5 Title, Author, COUNT(*) AS MostBorrowedBook FROM BookIssuance bi
+USE DSALibrary;
+Select TOP 5 Title, Author, GenreName,COUNT(*) AS TimesBorrowed FROM BookIssuance bi
 JOIN Book b ON bi.BookID = b.BookID
 JOIN Genre g ON g.GenreID = b.GenreID
 GROUP BY Title, GenreName, Author 
-HAVING GenreName = 'History';
 ```
-
-
+```
+SELECT PatronID, FirstName, LastName, MembershipType
+From Patron p JOIN Membership m ON p.MembershipID = m.MembershipID
+WHERE MembershipType = 'Librarian'
+```
 
 ## 7. Set Access Control (DCL)
 Retrieve a list of all books in a specific category.
