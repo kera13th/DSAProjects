@@ -71,13 +71,29 @@ Fields include category ID and category name.
 
 Here are the sample dataset that I used:
 
-[Books Sample Data](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)
+For Book Table:
+[Kaggle - Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)
 
-[AdventureWorks2022]
+For Patron and BookIssuance table, I used the values from --- and FactInternetSales table respectively. 
+[AdventureWorks2022](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2022.bak)
 
 
 # 6. Sample Queries
-Sample SQL queries for common tasks:
+
+```
+USE Library;
+Select TOP 5 Title, Author, COUNT(*) AS MostBorrowedBook FROM BookIssuance bi
+JOIN Books b ON bi.BookID = b.BookID
+JOIN Genre g ON g.GenreID = b.GenreID
+GROUP BY Title, GenreName, Author 
+HAVING GenreName = 'History'
+```
+
+```
+SELECT BookOrderNumber,COUNT(BookOrderNumber) FROM BookIssuance
+GROUP BY BookOrderNumber
+HAVING COUNT(BookOrderNumber) > 2
+```
 
 # 7. Set Access Control (DCL)
 Retrieve a list of all books in a specific category.
