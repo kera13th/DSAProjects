@@ -81,7 +81,6 @@ For Patron and BookIssuance table, I used the values from --- and FactInternetSa
 # 6. Sample Queries
 
 ```
-USE Library;
 Select TOP 5 Title, Author, COUNT(*) AS MostBorrowedBook FROM BookIssuance bi
 JOIN Books b ON bi.BookID = b.BookID
 JOIN Genre g ON g.GenreID = b.GenreID
@@ -89,11 +88,7 @@ GROUP BY Title, GenreName, Author
 HAVING GenreName = 'History';
 ```
 
-```
-SELECT BookOrderNumber,COUNT(BookOrderNumber) FROM BookIssuance
-GROUP BY BookOrderNumber
-HAVING COUNT(BookOrderNumber) > 2;
-```
+
 
 # 7. Set Access Control (DCL)
 Retrieve a list of all books in a specific category.
