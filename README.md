@@ -190,6 +190,7 @@ I accomplished the task of populating the "Book" table by retrieving data from a
 
 To facilitate this data transformation, I opted for MS Excel as my tool of choice. Within Excel, I meticulously edited a CSV file, making necessary adjustments to the dataset. To enhance the richness and diversity of the data, I employed Excel's formula functionality to generate randomized entries for specific columns, thereby enriching the dataset with pertinent information.
 
+
 ```
 =INDEX(data!A:A, RANDBETWEEN(2,COUNTA(data!A:A)))
 ```
