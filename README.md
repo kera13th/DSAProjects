@@ -86,7 +86,49 @@ Fields include ISBN, title, author ID, Genre ID, publication year, and available
 ### 4.3. Patrons
 Stores information about library patrons.
 Fields include patron ID, first name, last name, contact information.
-
+```
++--------------+----------------+----------------------+--------------+
+|    Column    |   Data Type    |     Description      | Constraints  |
++--------------+----------------+----------------------+--------------+
+|              |                |                      |              |
+|   PatronID   |     BIGINT     |  Unique identifier   |   NOT NULL   |
+|              |                |  for Patrons.        |              |
+|--------------|----------------|----------------------|--------------|
+| MembershipID | NVARCHAR(100)  |  Membership ID of    |              |
+|              |                |  the Patron.         |              |
+|--------------|----------------|----------------------|--------------|
+|  FirstName   | NVARCHAR(50)   |  First name of the   |   NOT NULL   |
+|              |                |  Patron.             |              |
+|--------------|----------------|----------------------|--------------|
+| Middlename   | NVARCHAR(50)   |  Middle name of the  |              |
+|              |                |  Patron.             |              |
+|--------------|----------------|----------------------|--------------|
+|   LastName   | NVARCHAR(50)   |  Last name of the    |   NOT NULL   |
+|              |                |  Patron.             |              |
+|--------------|----------------|----------------------|--------------|
+|  BirthDate   |   DATETIME     |  Birth date of the   |              |
+|              |                |  Patron.             |              |
+|--------------|----------------|----------------------|--------------|
+|    Gender    | NVARCHAR(1)    |  Gender of the       |              |
+|              |                |  Patron.             |              |
+|--------------|----------------|----------------------|--------------|
+| EmailAddress | NVARCHAR(40)   |  Email address of    |              |
+|              |                |  the Patron.         |              |
+|--------------|----------------|----------------------|--------------|
+|  Education   | NVARCHAR(40)   |  Education level of  |              |
+|              |                |  the Patron.         |              |
+|--------------|----------------|----------------------|--------------|
+|  Occupation  | NVARCHAR(100)  |  Occupation of the   |              |
+|              |                |  Patron.             |              |
+|--------------|----------------|----------------------|--------------|
+| AddressLine1 | NVARCHAR(120)  |  Address Line 1 of   |              |
+|              |                |  the Patron.         |              |
+|--------------|----------------|----------------------|--------------|
+| AddressLine2 | NVARCHAR(120)  |  Address Line 2 of   |              |
+|              |                |  the Patron.         |              |
+|              |                |                      |              |
++--------------+----------------+----------------------+--------------+
+```
 ### 4.4. Membership Table
 
 ```
