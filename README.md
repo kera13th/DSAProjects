@@ -194,6 +194,8 @@ To facilitate this data transformation, I opted for MS Excel as my tool of choic
 =INDEX(data!A:A, RANDBETWEEN(2,COUNTA(data!A:A)))
 ```
 
+Testing the table if populated properly
+
 ![Book Table Screenshot](https://drive.google.com/uc?export=download&id=17H5BP9egBqctM7LvRCuB6eLlwC0s2OHm)
 
 #### Populating Patron and BookIssuance table
@@ -209,8 +211,10 @@ SELECT FirstName, MiddleName, LastName, BirthDate, Gender, EmailAddress, Educati
 Occupation, AddressLine1, AddressLine2 -- Replace with the actual column names you want to copy
 FROM AdventureWorksDW2022.dbo.ProspectiveBuyer; -- Replace SourceTable with the name of your source table in SourceDB
 ```
+Testing the table if populated properly
 
-
+![Patron Table Screenshot](https://drive.google.com/uc?export=download&id=17H5BP9egBqctM7LvRCuB6eLlwC0s2OHm)](https://drive.google.com/uc?export=download&id=17IPgWt4z_28P_zFUdN0X-1MQUAavAi0q)
+ 
 
 
 ## 6. Sample Queries
