@@ -144,30 +144,33 @@ Fields include patron ID, first name, last name, contact information.
 +---------------+----------------+-------------------+--------------+
 ```
 
-### 4.4. Transactions
+### 4.4. Book Issuance Table
 
 ```
-+------------------+--------------+-----------------------+--------------+
-| Column Name      | Data Type    | Description           | Constraints  |
-+------------------+--------------+-----------------------+--------------+
-| BookOrderNumber  | NVARCHAR(20) | Order number of book  | NOT NULL     |
-|                  |              | issuance              |              |
-+------------------+--------------+-----------------------+--------------+
-| BookID           | BIGINT       | Unique identifier for | NULL         |
-|                  |              | the book being issued |              |
-+------------------+--------------+-----------------------+--------------+
-| UserID           | BIGINT       | Unique identifier for | NULL         |
-|                  |              | the user or borrower  |              |
-+------------------+--------------+-----------------------+--------------+
-| IssuanceDate     | DATETIME     | Date and time when    | NULL         |
-|                  |              | the book was issued   |              |
-+------------------+--------------+-----------------------+--------------+
-| ReturnDate       | DATETIME     | Date and time when    | NULL         |
-|                  |              | the book was returned |              |
-+------------------+--------------+-----------------------+--------------+
-| DueDate          | DATETIME     | Due date for          | NULL         |
-|                  |              | returning the book    |              |
-+------------------+--------------+-----------------------+--------------+
++-----------------+----------------+------------------------+--------------+
+|    Column       |   Data Type    |      Description       | Constraints  |
++-----------------+----------------+------------------------+--------------+
+|                 |                |                        |              |
+|  TransactionID  |     BIGINT     |  Unique identifier     |   NOT NULL   |
+|                 |                |  for transactions.     |              |
+|-----------------|----------------|------------------------|--------------|
+| CheckoutOrderID | NVARCHAR(20)   |  Order ID for          |   NOT NULL   |
+|                 |                |  checkout.             |              |
+|-----------------|----------------|------------------------|--------------|
+|      BookID     |     BIGINT     |  Unique identifier     |   NOT NULL   |
+|                 |                |  for books.            |              |
+|-----------------|----------------|------------------------|--------------|
+|     PatronID    |     BIGINT     |  Unique identifier     |   NOT NULL   |
+|                 |                |  for patrons.          |              |
+|-----------------|----------------|------------------------|--------------|
+|   CheckoutDate  |   DATETIME     |  Date of checkout.     |              |
+|-----------------|----------------|------------------------|--------------|
+|     DueDate     |   DATETIME     |  Due date for return.  |              |
+|-----------------|----------------|------------------------|--------------|
+|    ReturnDate   |   DATETIME     |  Date of return.       |              |
+|                 |                |                        |              |
++-----------------+----------------+------------------------+--------------+
+
 ```
 Records transactions related to book checkouts and returns.
 Fields include transaction ID, book ID, patron ID, checkout date, return date.
