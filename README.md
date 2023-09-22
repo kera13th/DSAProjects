@@ -185,6 +185,13 @@ Here are the sample dataset that I used:
 For Book Table:
 [Kaggle - Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)
 
+For missing info on other columns like 'Copies', I randomly generated numbers using MS Excel using this formula
+```
+=INDEX(data!A:A, RANDBETWEEN(2,COUNTA(data!A:A)))
+```
+
+![Book Table Screenshot](https://drive.google.com/uc?export=download&id=17H5BP9egBqctM7LvRCuB6eLlwC0s2OHm)
+
 For Patron and BookIssuance table, I used the values from --- and FactInternetSales table respectively. 
 [AdventureWorks2022](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2022.bak)
 
