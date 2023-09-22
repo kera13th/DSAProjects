@@ -1,3 +1,56 @@
+-- ############ Populate Genre Table ############# 
+-- ###############################################
+
+INSERT INTO Genre (GenreID,GenreName)
+VALUES
+(1,'Action/adventure Fiction'),
+(2,'Children’s Fiction'),
+(3,'Classic Fiction'),
+(4,'Contemporary Fiction'),
+(5,'Fantasy'),
+(6,'Graphic Novel'),
+(7,'Historical Fiction'),
+(8,'Horror'),
+(9,'Lgbtq+'),
+(10,'Literary Fiction'),
+(11,'Mystery'),
+(12,'New Adult'),
+(13,'Romance'),
+(14,'Satire'),
+(15,'Science Fiction'),
+(16,'Short Story'),
+(17,'Thriller'),
+(18,'Western'),
+(19,'Women’s Fiction'),
+(20,'Young Adult'),
+(21,'Art & Photography'),
+(22,'Autobiography/memoir'),
+(23,'Biography'),
+(24,'Essays'),
+(25,'Food & Drink'),
+(26,'History'),
+(27,'How-to/guides'),
+(28,'Humanities & Social Sciences'),
+(29,'Humor'),
+(30,'Parenting'),
+(31,'Philosophy'),
+(32,'Religion & Spirituality'),
+(33,'Science & Technology'),
+(34,'Self-help'),
+(35,'Travel'),
+(36,'True Crime');
+
+-- ########## Populate Membership Table ########## 
+-- ###############################################
+
+INSERT INTO Membership (MembershipID,MembershipType)
+VALUES
+(1,'Student'),
+(2,'Library Staff'),
+(3,'Librarian'),
+(4,'Database Admin');
+
+
 -- ########## Populate Book Table ########## 
 -- #########################################
 
@@ -268,73 +321,6 @@ INSERT INTO Book VALUES
 ('Eat This Book: Cooking with Global Fresh Flavors','Tyler Florence/Petrina Tinslay','1400052378',9,'eng',287,'10/01/2004','Clarkson Potter Publishers',3),
 ('Freakonomics: A Rogue Economist Explores the Hidden Side of Everything','Steven D. Levitt/Stephen J. Dubner','61234001',21,'eng',320,'10/17/2006','William Morrow',2);
 
--- ######### Populate BookIssuance Table ######### 
--- ###############################################
-
--- Insert data from specific columns in SourceTable into DestinationTable
-INSERT INTO BookIssuance (CheckoutOrderID, CheckoutDate, DueDate, ReturnDate) -- Replace Column1, Column2, Column3 with your specific column names
-SELECT SalesOrderNumber, OrderDate, DueDate, ShipDate -- Replace with the actual column names you want to copy
-FROM AdventureWorksDW2022.SalesSchema.FactInternetSales; -- Replace SourceTable with the name of your source table in SourceDB
-
--- Generate random values for BookID and PatronID column
-UPDATE BookIssuance
-SET BookID = 1 + ABS(CHECKSUM(NEWID())) % 265; --265 is the total number of registered books
-
-UPDATE BookIssuance
-SET PatronID = 1 + ABS(CHECKSUM(NEWID())) % 2059; --2059 is the total number of registered patrons
-
--- ############ Populate Genre Table ############# 
--- ###############################################
-
-INSERT INTO Genre (GenreID,GenreName)
-VALUES
-(1,'Action/adventure Fiction'),
-(2,'Children’s Fiction'),
-(3,'Classic Fiction'),
-(4,'Contemporary Fiction'),
-(5,'Fantasy'),
-(6,'Graphic Novel'),
-(7,'Historical Fiction'),
-(8,'Horror'),
-(9,'Lgbtq+'),
-(10,'Literary Fiction'),
-(11,'Mystery'),
-(12,'New Adult'),
-(13,'Romance'),
-(14,'Satire'),
-(15,'Science Fiction'),
-(16,'Short Story'),
-(17,'Thriller'),
-(18,'Western'),
-(19,'Women’s Fiction'),
-(20,'Young Adult'),
-(21,'Art & Photography'),
-(22,'Autobiography/memoir'),
-(23,'Biography'),
-(24,'Essays'),
-(25,'Food & Drink'),
-(26,'History'),
-(27,'How-to/guides'),
-(28,'Humanities & Social Sciences'),
-(29,'Humor'),
-(30,'Parenting'),
-(31,'Philosophy'),
-(32,'Religion & Spirituality'),
-(33,'Science & Technology'),
-(34,'Self-help'),
-(35,'Travel'),
-(36,'True Crime');
-
--- ########## Populate Membership Table ########## 
--- ###############################################
-
-INSERT INTO Membership (MembershipID,MembershipType)
-VALUES
-(1,'Student'),
-(2,'Library Staff'),
-(3,'Librarian'),
-(4,'Database Admin');
-
 -- ############ Populate Patron Table ############ 
 -- ###############################################
 
@@ -344,4 +330,18 @@ SELECT FirstName, MiddleName, LastName, BirthDate, Gender, EmailAddress, Educati
 Occupation, AddressLine1, AddressLine2 -- Replace with the actual column names you want to copy
 FROM AdventureWorksDW2022.dbo.ProspectiveBuyer; -- Replace SourceTable with the name of your source table in SourceDB
 
+-- ######### Populate BookIssuance Table ######### 
+-- ###############################################
 
+-- Insert data from specific columns in SourceTable into DestinationTable
+INSERT INTO BookIssuance (CheckoutOrderID, CheckoutDate, DueDate, ReturnDate) -- Replace Column1, Column2, Column3 with your specific column names
+SELECT SalesOrderNumber, OrderDate, DueDate, ShipDate -- Replace with the actual column names you want to copy
+FROM AdventureWorksDW2022.SalesSchema.FactInternetSales; -- Replace SourceTable with the name of your source table in SourceDB
+
+-- Generate random values for BookID and PatronID column
+
+UPDATE BookIssuance
+SET PatronID = 1 + ABS(CHECKSUM(NEWID())) % 2059; --2059 is the total number of registered patrons
+
+UPDATE BookIssuance
+SET BookID = 1 + ABS(CHECKSUM(NEWID())) % 265; --265 is the total number of registered books
