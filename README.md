@@ -67,10 +67,9 @@ Fields include ISBN, title, author ID, Genre ID, publication year, and available
 +------------+----------------+-------------------+--------------+
 ```
 
-### 4.2. Genre
-Stores information about book authors.
-Fields include author ID, first name, and last name.
+### 4.2. Genre Table
 
+```
 +------------+-------------+----------------+------------------+
 |   Column   |  Data Type  |  Description   |   Constraints    |
 +------------+-------------+----------------+------------------+
@@ -82,7 +81,7 @@ Fields include author ID, first name, and last name.
 | GenreName  | NVARCHAR(60)|   Genre Name   |                  |
 |            |             |                |                  |
 +------------+-------------+----------------+------------------+
-
+```
 
 ### 4.3. Patrons
 Stores information about library patrons.
