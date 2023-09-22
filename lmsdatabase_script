@@ -5,7 +5,7 @@ USE DSALibrary;
 
 -- Create Book Table
 CREATE TABLE Book (
-BookID BIGINT IDENTITY(1,1) NOT NULL, --will automatically generate numbering for bookID
+BookID BIGINT IDENTITY(1,1), --will automatically generate numbering for bookID
 Title NVARCHAR(350) NOT NULL,
 Author NVARCHAR(300) NOT NULL,
 isbn NVARCHAR(30) NOT NULL,
@@ -31,7 +31,7 @@ MembershipType NVARCHAR(50) NOT NULL,
 -- Create Patron Table
 CREATE TABLE Patron (
 PatronID BIGINT IDENTITY(1,1) NOT NULL,
-MembershipID NVARCHAR(100),
+MembershipID INT DEFAULT 1,
 FirstName NVARCHAR(50) NOT NULL,
 Middlename NVARCHAR(50),
 LastName NVARCHAR(50) NOT NULL,
