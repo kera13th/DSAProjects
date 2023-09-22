@@ -243,7 +243,7 @@ VALUES
 
 ```
 Select TOP 5 Title, Author, COUNT(*) AS MostBorrowedBook FROM BookIssuance bi
-JOIN Books b ON bi.BookID = b.BookID
+JOIN Book b ON bi.BookID = b.BookID
 JOIN Genre g ON g.GenreID = b.GenreID
 GROUP BY Title, GenreName, Author 
 HAVING GenreName = 'History';
