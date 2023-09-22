@@ -1,10 +1,10 @@
-# DSA SQL MASTERCLASS
-# Library Management System Database Documentation
+## DSA SQL MASTERCLASS
+### Library Management System Database Documentation
 
-# 1. Introduction
+## 1. Introduction
 This document provides an overview and documentation of the Library Management System (LMS) database. The LMS is designed to manage the library's collection of books, book Issuance, and related activities.
 
-# 2. Database Schema
+## 2. Database Schema
 
 The LMS database follows a relational database model and is composed of several tables connected through relationships. The primary entities include:
 •	Book
@@ -15,13 +15,13 @@ The LMS database follows a relational database model and is composed of several 
 
 [Setup Database in SSMS using this script](https://github.com/kera13th/DSAProjects/blob/LMS-Database/lmsdatabase_script)
 
-# 3. Entity-Relationship Diagram (ERD)
+## 3. Entity-Relationship Diagram (ERD)
 
 ![LMS Entity Relationship Diagram](https://drive.google.com/uc?export=download&id=176DjE3y2ZX6svhTsPrgruq2U-HOAlZkF)
 
-# 4. Tables and Descriptions
+## 4. Tables and Descriptions
 
-## 4.1. Books
+### 4.1. Books
 
 Stores information about books in the library.
 Fields include ISBN, title, author ID, category ID, publication year, and available copies.
@@ -49,23 +49,23 @@ Fields include ISBN, title, author ID, category ID, publication year, and availa
 +------------------+--------------+-----------------------+--------------+
 ```
 
-## 4.2. Genre
+### 4.2. Genre
 Stores information about book authors.
 Fields include author ID, first name, and last name.
 
-## 4.3. Patrons
+### 4.3. Patrons
 Stores information about library patrons.
 Fields include patron ID, first name, last name, contact information.
 
-## 4.4. Transactions
+### 4.4. Transactions
 Records transactions related to book checkouts and returns.
 Fields include transaction ID, book ID, patron ID, checkout date, return date.
 
-## 4.5. Categories
+### 4.5. Categories
 Categorizes books into genres or categories.
 Fields include category ID and category name.
 
-# 5. Populate Database
+## 5. Populate Database
 
 [Populate Tables](https://github.com/kera13th/DSAProjects/tree/LMS-Database)
 
@@ -78,7 +78,7 @@ For Patron and BookIssuance table, I used the values from --- and FactInternetSa
 [AdventureWorks2022](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2022.bak)
 
 
-# 6. Sample Queries
+## 6. Sample Queries
 
 ```
 Select TOP 5 Title, Author, COUNT(*) AS MostBorrowedBook FROM BookIssuance bi
@@ -90,14 +90,14 @@ HAVING GenreName = 'History';
 
 
 
-# 7. Set Access Control (DCL)
+## 7. Set Access Control (DCL)
 Retrieve a list of all books in a specific category.
 Check the number of available copies of a book.
 View a patron's borrowing history.
 Add a new book to the collection.
 Check out a book to a patron.
 
-# 6. User Roles and Permissions
+## 6. User Roles and Permissions
 
 Administrator: Full access to all database functions.
 Librarian: Can manage books, patrons, and transactions.
