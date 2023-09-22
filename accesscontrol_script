@@ -1,0 +1,48 @@
+-- CREATE ROLES -- 
+USE DSALibrary;
+CREATE ROLE librarian;
+CREATE ROLE librarystaff;
+CREATE ROLE member;
+
+-- Add users
+```
+USE DSALibrary;
+CREATE LOGIN lmsadmin WITH PASSWORD = 'lmsadmin';
+CREATE USER lmsadminuser FOR LOGIN lmsadmin;
+```
+CREATE LOGIN lmsstudent WITH PASSWORD = 'lmsstudent';
+CREATE USER lmsstudentuser FOR LOGIN lmsstudent;
+
+CREATE LOGIN lmsstaff WITH PASSWORD = 'lmsstaff';
+CREATE USER lmsstaffuser FOR LOGIN lmsstaff;
+
+-- Adding users to role
+USE Library;
+EXEC sp_addrolemember 'librarian', 'lmsadminuser';
+
+USE Library;
+EXEC sp_addrolemember 'member', 'lmsstudentuser';
+
+USE Library;
+EXEC sp_addrolemember 'librarystaff', 'lmsstaffuser';
+
+
+-- Setting privilege for member role/for students
+GRANT SELECT ON Book TO member;
+GRANT SELECT ON Genre TO member;
+
+-- Setting privilege for staff
+USE DSALibrary;
+GRANT SELECT, INSERT, UPDATE, DELETE ON Book TO librarystaff;
+GRANT SELECT, INSERT, UPDATE, DELETE ON BookIssuance TO librarystaff; 
+GRANT SELECT ON SCHEMA::dbo TO librarystaff;
+
+-- Setting privilege for librarian
+ 
+-- Grant SELECT, INSERT, UPDATE, DELETE on all tables in the schema
+GRANT SELECT, INSERT, UPDATE, DELETE ON SCHEMA::dbo TO librarian;
+-- Grant EXECUTE permission on all stored procedures and functions
+GRANT EXECUTE ON DATABASE::DSALibrary TO librarian;
+-- Grant VIEW DEFINITION permission (ability to see object metadata)
+GRANT VIEW DEFINITION TO librarian;
+GRANT SELECT, INSERT, UPDATE, DELETE ON DATABASE::DSALibrary TO librarian;
