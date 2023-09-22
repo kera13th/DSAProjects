@@ -39,7 +39,7 @@ VALUES
 (35,'Travel'),
 (36,'True Crime');
 
-### Populate Membership Table
+-- Populate Membership Table
 
 INSERT INTO Membership (MembershipID,MembershipType)
 VALUES
@@ -317,4 +317,11 @@ INSERT INTO Book VALUES
 ('Eat This Book: Cooking with Global Fresh Flavors','Tyler Florence/Petrina Tinslay','1400052378',9,'eng',287,'10/01/2004','Clarkson Potter Publishers',3),
 ('Freakonomics: A Rogue Economist Explores the Hidden Side of Everything','Steven D. Levitt/Stephen J. Dubner','61234001',21,'eng',320,'10/17/2006','William Morrow',2);
 
-SELECT * FROM Book;
+-- POPULATE PATRON TABLE
+-- Insert data from specific columns in SourceTable into DestinationTable
+INSERT INTO Patron (FirstName, MiddleName, LastName, BirthDate, Gender, EmailAddress, Education,
+Occupation, AddressLine1, AddressLine2) -- Replace Column1, Column2, Column3 with your specific column names
+SELECT FirstName, MiddleName, LastName, BirthDate, Gender, EmailAddress, Education,
+Occupation, AddressLine1, AddressLine2 -- Replace with the actual column names you want to copy
+FROM AdventureWorksDW2022.dbo.ProspectiveBuyer; -- Replace SourceTable with the name of your source table in SourceDB
+
