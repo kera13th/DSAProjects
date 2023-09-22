@@ -46,16 +46,6 @@ AddressLine2 NVARCHAR(120),
 
 -- create FACT.bookIssuance table
 CREATE TABLE BookIssuance (
-TransactionID BIGINT NOT NULL,
-CheckoutOrderID NVARCHAR(20) NOT NULL,
-BookID BIGINT NOT NULL,
-PatronID BIGINT NOT NULL,
-CheckoutDate DATETIME NULL,
-DueDate DATETIME NULL,
-ReturnDate DATETIME NULL,
-);
-
-CREATE TABLE BookIssuance (
 TransactionID BIGINT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 CheckoutOrderID NVARCHAR(20) NOT NULL,
 BookID BIGINT,
