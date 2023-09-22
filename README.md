@@ -197,7 +197,10 @@ To facilitate this data transformation, I opted for MS Excel as my tool of choic
 
 ![Book Table Screenshot](https://drive.google.com/uc?export=download&id=17H5BP9egBqctM7LvRCuB6eLlwC0s2OHm)
 
-For Patron and BookIssuance table, I used the values from --- and FactInternetSales table respectively. 
+For Patron and BookIssuance table
+
+To populate the Patron and Book Issuance tables, I leveraged the AdventureWorks2022 dataset for the Patron (User) entries and the FactInternetSales table for the Book Issuance Table. This approach allowed me to import and integrate relevant data from these sources, ensuring the accuracy and completeness of the information contained within these tables.
+
 [AdventureWorks2022](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2022.bak)
 
 
