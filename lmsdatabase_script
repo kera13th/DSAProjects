@@ -5,7 +5,7 @@ USE DSALibrary;
 
 -- Create Book Table
 CREATE TABLE Book (
-BookID BIGINT NOT NULL,
+BookID BIGINT IDENTITY(1,1) PRIMARY KEY, --will automatically generate numbering for bookID
 Title NVARCHAR(350) NOT NULL,
 Author NVARCHAR(300) NOT NULL,
 isbn NVARCHAR(30) NOT NULL,
