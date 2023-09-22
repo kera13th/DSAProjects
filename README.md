@@ -7,12 +7,13 @@ This document provides an overview and documentation of the Library Management S
 # 2. Database Schema
 
 The LMS database follows a relational database model and is composed of several tables connected through relationships. The primary entities include:
-•	Books
-•	Users
-•	Department
+•	Book
+•	Patron
 •	Membership
 •	Book Issuance (checkouts, returns)
 •	Genre (book genres)
+
+[Setup Database in SSMS using this script](https://github.com/kera13th/DSAProjects/blob/LMS-Database/lmsdatabase_script)
 
 # 3. Entity-Relationship Diagram (ERD)
 
