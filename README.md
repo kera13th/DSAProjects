@@ -222,7 +222,7 @@ VALUES
 (3,'Librarian'),
 (4,'Database Admin');
 ```
-![Membership Table Screenshot](https://drive.google.com/file/d/17Tx-EjiSkyB_yjQayyRNLyPTewwHLozU/view?pli=1)
+![Membership Table Screenshot](https://drive.google.com/uc?export=download&id=17pi_vxjXB0rFrkDvqdgSASMyQQwhYiTi)
 
 #### :minidisc: Populating Genre Table
 
