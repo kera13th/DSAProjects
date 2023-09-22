@@ -1,10 +1,10 @@
-## DSA SQL MASTERCLASS
-### Library Management System Database Documentation
+### DSA SQL MASTERCLASS
+## Library Management System Database Documentation
 
-## 1. Introduction
+### 1. Introduction
 This document provides an overview and documentation of the Library Management System (LMS) database. The LMS is designed to manage the library's collection of books, book Issuance, and related activities.
 
-## 2. Database Schema
+### 2. Database Schema
 
 The LMS database follows a relational database model and is composed of several tables connected through relationships. The primary entities include:
 •	Book
@@ -15,11 +15,11 @@ The LMS database follows a relational database model and is composed of several 
 
 [Setup Database in SSMS using this script](https://github.com/kera13th/DSAProjects/blob/LMS-Database/lmsdatabase_script)
 
-## 3. Entity-Relationship Diagram (ERD)
+### 3. Entity-Relationship Diagram (ERD)
 
 ![LMS Entity Relationship Diagram](https://drive.google.com/uc?export=download&id=176DjE3y2ZX6svhTsPrgruq2U-HOAlZkF)
 
-## 4. Tables and Descriptions
+### 4. Tables and Descriptions
 
 ### 4.1. Book Table
 
@@ -176,14 +176,14 @@ Records transactions related to book checkouts and returns.
 Fields include transaction ID, book ID, patron ID, checkout date, return date.
 
 
-## 5. Populate Database
+### 5. Populate Database
 
 
 [Populate Tables](https://github.com/kera13th/DSAProjects/tree/LMS-Database)
 
 Here are the sample dataset that I used:
 
-#### Populating Book Table
+##### :minidisc: Populating Book Table
 Dataset: [Kaggle - Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)
 
 I accomplished the task of populating the "Book" table by retrieving data from an established dataset acquired from Kaggle. Afterward, I carefully reorganized the columns to make sure they smoothly fit into the LMS (Library Management System) Database's structure, making sure they match the needed columns accurately.
@@ -198,7 +198,7 @@ Testing the table if populated properly
 
 ![Book Table Screenshot](https://drive.google.com/uc?export=download&id=17H5BP9egBqctM7LvRCuB6eLlwC0s2OHm)
 
-#### Populating Patron and BookIssuance table
+##### :minidisc: Populating Patron and BookIssuance table
 Dataset: [AdventureWorks2022](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2022.bak)
 
 To populate the Patron and Book Issuance tables, I leveraged the AdventureWorks2022 dataset for the Patron (User) entries and the FactInternetSales table for the Book Issuance Table. This approach allowed me to import and integrate relevant data from these sources, ensuring the accuracy and completeness of the information contained within these tables.
