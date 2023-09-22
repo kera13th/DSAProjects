@@ -14,10 +14,10 @@ LangCode NVARCHAR(30),
 PageNum BIGINT,
 PublicationDate NVARCHAR(300),
 Publisher NVARCHAR(300),
-Copies INT;
+Copies INT
 );
 
--- create Genre table
+-- Create Genre Table
 CREATE TABLE Genre (
 GenreID BIGINT NOT NULL,
 GenreName NVARCHAR(60)
@@ -28,7 +28,7 @@ MembershipID NVARCHAR(100) NOT NULL,
 MembershipType NVARCHAR(50) NOT NULL,
 );
 
--- create Patron table
+-- Create Patron Table
 CREATE TABLE Patron (
 PatronID BIGINT IDENTITY(1,1) NOT NULL,
 MembershipID NVARCHAR(100),
@@ -44,7 +44,7 @@ AddressLine1 NVARCHAR(120),
 AddressLine2 NVARCHAR(120), 
 );
 
--- create FACT.bookIssuance table
+-- Create BookIssuance Table
 CREATE TABLE BookIssuance (
 TransactionID BIGINT IDENTITY(1,1) NOT NULL,
 CheckoutOrderID NVARCHAR(20) NOT NULL,
