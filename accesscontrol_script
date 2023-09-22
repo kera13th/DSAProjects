@@ -5,11 +5,10 @@ CREATE ROLE librarystaff;
 CREATE ROLE member;
 
 -- Add users
-```
 USE DSALibrary;
 CREATE LOGIN lmsadmin WITH PASSWORD = 'lmsadmin';
 CREATE USER lmsadminuser FOR LOGIN lmsadmin;
-```
+
 CREATE LOGIN lmsstudent WITH PASSWORD = 'lmsstudent';
 CREATE USER lmsstudentuser FOR LOGIN lmsstudent;
 
