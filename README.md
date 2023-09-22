@@ -66,6 +66,9 @@ Categorizes books into genres or categories.
 Fields include category ID and category name.
 
 # 5. Populate Database
+
+
+
 # 6. Sample Queries
 Sample SQL queries for common tasks:
 
