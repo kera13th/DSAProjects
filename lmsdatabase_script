@@ -3,7 +3,7 @@ CREATE DATABASE DSALibrary;
 
 USE DSALibrary;
 
--- Create Tables
+-- Create Book Table
 CREATE TABLE Book (
 BookID BIGINT NOT NULL,
 Title NVARCHAR(350) NOT NULL,
