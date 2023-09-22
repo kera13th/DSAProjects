@@ -21,157 +21,64 @@ The LMS database follows a relational database model and is composed of several 
 
 ### 4. Tables and Descriptions
 
-### 4.1. Book Table
+### Book Table
 
-Stores information about books in the library.
-Fields include ISBN, title, author ID, Genre ID, publication year, and available copies.
+| **Column**       | **Data Type**       | **Description**                                     | **Constraints**                |
+|------------------|---------------------|-----------------------------------------------------|--------------------------------|
+| BookID           | BIGINT              | Unique identifier for books.                        | IDENTITY(1,1)                  |
+| Title            | NVARCHAR(350)       | The title of the book.                             | NOT NULL                       |
+| Author           | NVARCHAR(300)       | The author of the book.                            | NOT NULL                       |
+| isbn             | NVARCHAR(30)        | The International Standard Book Number (ISBN).     | NOT NULL                       |
+| GenreID          | BIGINT              | Unique identifier for the genre of the book.        | NOT NULL                       |
+| LangCode         | NVARCHAR(30)        | The language code of the book.                     |                                |
+| PageNum          | BIGINT              | The number of pages in the book.                   |                                |
+| PublicationDate  | NVARCHAR(300)       | The publication date of the book.                 |                                |
+| Publisher        | NVARCHAR(300)       | The publisher of the book.                        |                                |
+| Copies           | INT                 | The number of copies available for the book.       |                                |
 
-```
-+------------+----------------+-------------------+--------------+
-|   Column   |   Data Type    |   Description     | Constraints  |
-+------------+----------------+-------------------+--------------+
-|            |                |                   |              |
-|  BookID    |     BIGINT     | Unique identifier |   NOT NULL   |
-|            |                | for the book.     |              |
-|------------|----------------|-------------------|--------------|
-|  Title     | NVARCHAR(350)  | The title of the  |   NOT NULL   |
-|            |                | book.             |              |
-|------------|----------------|-------------------|--------------|
-|  Author    | NVARCHAR(300)  | The author of the |   NOT NULL   |
-|            |                | book.             |              |
-|------------|----------------|-------------------|--------------|
-|  ISBN      | NVARCHAR(30)   | The International |   NOT NULL   |
-|            |                | Standard Book     |              |
-|            |                | Number (ISBN).    |              |
-|------------|----------------|-------------------|--------------|
-|  GenreID   |     BIGINT     | Unique identifier |   NOT NULL   |
-|            |                | for the genre of  |              |
-|            |                | the book.         |              |
-|------------|----------------|-------------------|--------------|
-|  LangCode  | NVARCHAR(30)   | The language code |              |
-|            |                | of the book.      |              |
-|------------|----------------|-------------------|--------------|
-|  PageNum   |     BIGINT     | The number of     |              |
-|            |                | pages in the book.|              |
-|------------|----------------|-------------------|--------------|
-|  PubDate   | NVARCHAR(300)  | The publication   |              |
-|            |                | date of the book. |              |
-|------------|----------------|-------------------|--------------|
-|  Publisher | NVARCHAR(300)  | The publisher of  |              |
-|            |                | the book.         |              |
-|------------|----------------|-------------------|--------------|
-|  Copies    |     INT        | The number of     |              |
-|            |                | copies available  |              |
-|            |                | for the book.     |              |
-|            |                |                   |              |
-+------------+----------------+-------------------+--------------+
-```
+### Genre Table
 
-### 4.2. Genre Table
-Categorizes books into genres or categories. Fields include category ID and category name.
-```
-+------------+-------------+----------------+------------------+
-|   Column   |  Data Type  |  Description   |   Constraints    |
-+------------+-------------+----------------+------------------+
-|            |             |                |                  |
-|  GenreID   |     INT     |   Primary Key  |                  |
-|            |             |   Identifier   |                  |
-|            |             |  for the Genre |                  |
-|------------|-------------|----------------|------------------|
-| GenreName  | NVARCHAR(60)|   Genre Name   |                  |
-|            |             |                |                  |
-+------------+-------------+----------------+------------------+
-```
+| **Column**   | **Data Type**  | **Description**                 | **Constraints**  |
+|--------------|----------------|---------------------------------|------------------|
+| GenreID      | BIGINT         | Unique identifier for genres.    | NOT NULL         |
+| GenreName    | NVARCHAR(60)   | Name of the genre.              |                  |
 
-### 4.3. Patrons
-Stores information about library patrons.
-Fields include patron ID, first name, last name, contact information.
-```
-+--------------+----------------+----------------------+--------------+
-|    Column    |   Data Type    |     Description      | Constraints  |
-+--------------+----------------+----------------------+--------------+
-|              |                |                      |              |
-|   PatronID   |     BIGINT     |  Unique identifier   |   NOT NULL   |
-|              |                |  for Patrons.        |              |
-|--------------|----------------|----------------------|--------------|
-| MembershipID | NVARCHAR(100)  |  Membership ID of    |              |
-|              |                |  the Patron.         |              |
-|--------------|----------------|----------------------|--------------|
-|  FirstName   | NVARCHAR(50)   |  First name of the   |   NOT NULL   |
-|              |                |  Patron.             |              |
-|--------------|----------------|----------------------|--------------|
-| Middlename   | NVARCHAR(50)   |  Middle name of the  |              |
-|              |                |  Patron.             |              |
-|--------------|----------------|----------------------|--------------|
-|   LastName   | NVARCHAR(50)   |  Last name of the    |   NOT NULL   |
-|              |                |  Patron.             |              |
-|--------------|----------------|----------------------|--------------|
-|  BirthDate   |   DATETIME     |  Birth date of the   |              |
-|              |                |  Patron.             |              |
-|--------------|----------------|----------------------|--------------|
-|    Gender    | NVARCHAR(1)    |  Gender of the       |              |
-|              |                |  Patron.             |              |
-|--------------|----------------|----------------------|--------------|
-| EmailAddress | NVARCHAR(40)   |  Email address of    |              |
-|              |                |  the Patron.         |              |
-|--------------|----------------|----------------------|--------------|
-|  Education   | NVARCHAR(40)   |  Education level of  |              |
-|              |                |  the Patron.         |              |
-|--------------|----------------|----------------------|--------------|
-|  Occupation  | NVARCHAR(100)  |  Occupation of the   |              |
-|              |                |  Patron.             |              |
-|--------------|----------------|----------------------|--------------|
-| AddressLine1 | NVARCHAR(120)  |  Address Line 1 of   |              |
-|              |                |  the Patron.         |              |
-|--------------|----------------|----------------------|--------------|
-| AddressLine2 | NVARCHAR(120)  |  Address Line 2 of   |              |
-|              |                |  the Patron.         |              |
-|              |                |                      |              |
-+--------------+----------------+----------------------+--------------+
-```
-### 4.4. Membership Table
+### Membership Table
 
-```
-+---------------+----------------+-------------------+--------------+
-|    Column     |   Data Type    |   Description     | Constraints  |
-+---------------+----------------+-------------------+--------------+
-|               |                |                   |              |
-|  MembershipID | NVARCHAR(100)  | Unique identifier |   NOT NULL   |
-|               |                | for Membership.   |              |
-|---------------|----------------|-------------------|--------------|
-| MembershipType| NVARCHAR(50)   | Type of Membership|   NOT NULL   |
-|               |                |                   |              |
-+---------------+----------------+-------------------+--------------+
-```
+| **Column**     | **Data Type**  | **Description**                     | **Constraints**  |
+|----------------|----------------|-------------------------------------|------------------|
+| MembershipID   | NVARCHAR(100) | Unique identifier for memberships.   | NOT NULL         |
+| MembershipType | NVARCHAR(50)  | Type of membership.                 | NOT NULL         |
 
-### 4.5. Book Issuance Table
+### Patron Table
 
-```
-+-----------------+----------------+------------------------+--------------+
-|    Column       |   Data Type    |      Description       | Constraints  |
-+-----------------+----------------+------------------------+--------------+
-|                 |                |                        |              |
-|  TransactionID  |     BIGINT     |  Unique identifier     |   NOT NULL   |
-|                 |                |  for transactions.     |              |
-|-----------------|----------------|------------------------|--------------|
-| CheckoutOrderID | NVARCHAR(20)   |  Order ID for          |   NOT NULL   |
-|                 |                |  checkout.             |              |
-|-----------------|----------------|------------------------|--------------|
-|      BookID     |     BIGINT     |  Unique identifier     |   NOT NULL   |
-|                 |                |  for books.            |              |
-|-----------------|----------------|------------------------|--------------|
-|     PatronID    |     BIGINT     |  Unique identifier     |   NOT NULL   |
-|                 |                |  for patrons.          |              |
-|-----------------|----------------|------------------------|--------------|
-|   CheckoutDate  |   DATETIME     |  Date of checkout.     |              |
-|-----------------|----------------|------------------------|--------------|
-|     DueDate     |   DATETIME     |  Due date for return.  |              |
-|-----------------|----------------|------------------------|--------------|
-|    ReturnDate   |   DATETIME     |  Date of return.       |              |
-|                 |                |                        |              |
-+-----------------+----------------+------------------------+--------------+
+| **Column**    | **Data Type**   | **Description**                      | **Constraints**                |
+|---------------|-----------------|--------------------------------------|--------------------------------|
+| PatronID      | BIGINT          | Unique identifier for patrons.        | IDENTITY(1,1)                  |
+| MembershipID  | INT             | Membership ID of the patron.         | DEFAULT 1                       |
+| FirstName     | NVARCHAR(50)    | First name of the patron.            | NOT NULL                       |
+| Middlename    | NVARCHAR(50)    | Middle name of the patron.           |                                |
+| LastName      | NVARCHAR(50)    | Last name of the patron.             | NOT NULL                       |
+| BirthDate     | DATETIME        | Birth date of the patron.            |                                |
+| Gender        | NVARCHAR(1)     | Gender of the patron.               |                                |
+| EmailAddress  | NVARCHAR(40)    | Email address of the patron.        |                                |
+| Education     | NVARCHAR(40)    | Education level of the patron.      |                                |
+| Occupation    | NVARCHAR(100)   | Occupation of the patron.           |                                |
+| AddressLine1  | NVARCHAR(120)   | Address Line 1 of the patron.       |                                |
+| AddressLine2  | NVARCHAR(120)   | Address Line 2 of the patron.       |                                |
 
-```
+### BookIssuance Table
+
+| **Column**        | **Data Type**  | **Description**                          | **Constraints**                |
+|-------------------|----------------|------------------------------------------|--------------------------------|
+| TransactionID     | BIGINT         | Unique identifier for transactions.      | IDENTITY(1,1)                  |
+| CheckoutOrderID   | NVARCHAR(20)   | Order ID for checkout.                   | NOT NULL                       |
+| BookID            | BIGINT         | Identifier for books.                    |                                |
+| PatronID          | BIGINT         | Identifier for patrons.                  |                                |
+| CheckoutDate      | DATETIME       | Date of checkout.                        |                                |
+| DueDate           | DATETIME       | Due date for return.                     |                                |
+| ReturnDate        | DATETIME       | Date of return.                          |                                |
+
 Records transactions related to book checkouts and returns.
 Fields include transaction ID, book ID, patron ID, checkout date, return date.
 
