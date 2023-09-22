@@ -325,3 +325,15 @@ SELECT FirstName, MiddleName, LastName, BirthDate, Gender, EmailAddress, Educati
 Occupation, AddressLine1, AddressLine2 -- Replace with the actual column names you want to copy
 FROM AdventureWorksDW2022.dbo.ProspectiveBuyer; -- Replace SourceTable with the name of your source table in SourceDB
 
+-- POPULATE BookIssuance TABLE
+-- Insert data from specific columns in SourceTable into DestinationTable
+INSERT INTO BookIssuance (CheckoutOrderID, CheckoutDate, DueDate, ReturnDate) -- Replace Column1, Column2, Column3 with your specific column names
+SELECT SalesOrderNumber, OrderDate, DueDate, ShipDate -- Replace with the actual column names you want to copy
+FROM AdventureWorksDW2022.SalesSchema.FactInternetSales; -- Replace SourceTable with the name of your source table in SourceDB
+
+-- Generate random values for BookID and PatronID column
+UPDATE BookIssuance
+SET BookID = 1 + ABS(CHECKSUM(NEWID())) % 265; --265 is the total number of registered books
+
+UPDATE BookIssuance
+SET PatronID = 1 + ABS(CHECKSUM(NEWID())) % 2059; --2059 is the total number of registered patrons
