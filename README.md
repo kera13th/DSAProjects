@@ -16,7 +16,7 @@ The LMS database follows a relational database model and is composed of several 
 
 # 3. Entity-Relationship Diagram (ERD)
 
-
+![LMS Entity Relationship Diagram](https://drive.google.com/uc?export=download&id=176DjE3y2ZX6svhTsPrgruq2U-HOAlZkF)
 
 # 4. Tables and Descriptions
 
