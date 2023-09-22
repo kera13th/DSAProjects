@@ -28,9 +28,9 @@ MembershipID NVARCHAR(100) NOT NULL,
 MembershipType NVARCHAR(50) NOT NULL,
 );
 
--- create Patrons table
+-- create Patron table
 CREATE TABLE Patron (
-PatronID BIGINT NOT NULL,
+PatronID BIGINT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 MembershipID NVARCHAR(100),
 FirstName NVARCHAR(50) NOT NULL,
 Middlename NVARCHAR(50),
