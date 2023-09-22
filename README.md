@@ -68,7 +68,7 @@ Fields include ISBN, title, author ID, Genre ID, publication year, and available
 ```
 
 ### 4.2. Genre Table
-
+Categorizes books into genres or categories. Fields include category ID and category name.
 ```
 +------------+-------------+----------------+------------------+
 |   Column   |  Data Type  |  Description   |   Constraints    |
@@ -144,7 +144,7 @@ Fields include patron ID, first name, last name, contact information.
 +---------------+----------------+-------------------+--------------+
 ```
 
-### 4.4. Book Issuance Table
+### 4.5. Book Issuance Table
 
 ```
 +-----------------+----------------+------------------------+--------------+
@@ -175,9 +175,6 @@ Fields include patron ID, first name, last name, contact information.
 Records transactions related to book checkouts and returns.
 Fields include transaction ID, book ID, patron ID, checkout date, return date.
 
-### 4.5. Categories
-Categorizes books into genres or categories.
-Fields include category ID and category name.
 
 ## 5. Populate Database
 
