@@ -183,13 +183,12 @@ Fields include transaction ID, book ID, patron ID, checkout date, return date.
 
 Here are the sample dataset that I used:
 
-For Book Table:
-[Kaggle - Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)
+#### Populating Book Table
+Dataset: [Kaggle - Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)
 
-I accomplished the task of populating the "Book" table by retrieving data from an established dataset acquired from Kaggle. Following this, I engaged in a meticulous process of restructuring the columns to seamlessly integrate with the architecture of the LMS (Learning Management System) Database, ensuring precise alignment with the required columns.
+I accomplished the task of populating the "Book" table by retrieving data from an established dataset acquired from Kaggle. Afterward, I carefully reorganized the columns to make sure they smoothly fit into the LMS (Library Management System) Database's structure, making sure they match the needed columns accurately.
 
 To facilitate this data transformation, I opted for MS Excel as my tool of choice. Within Excel, I meticulously edited a CSV file, making necessary adjustments to the dataset. To enhance the richness and diversity of the data, I employed Excel's formula functionality to generate randomized entries for specific columns, thereby enriching the dataset with pertinent information.
-
 
 ```
 =INDEX(data!A:A, RANDBETWEEN(2,COUNTA(data!A:A)))
@@ -197,11 +196,21 @@ To facilitate this data transformation, I opted for MS Excel as my tool of choic
 
 ![Book Table Screenshot](https://drive.google.com/uc?export=download&id=17H5BP9egBqctM7LvRCuB6eLlwC0s2OHm)
 
-For Patron and BookIssuance table
+#### Populating Patron and BookIssuance table
+Dataset: [AdventureWorks2022](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2022.bak)
 
 To populate the Patron and Book Issuance tables, I leveraged the AdventureWorks2022 dataset for the Patron (User) entries and the FactInternetSales table for the Book Issuance Table. This approach allowed me to import and integrate relevant data from these sources, ensuring the accuracy and completeness of the information contained within these tables.
 
-[AdventureWorks2022](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2022.bak)
+```
+-- Insert data from specific columns in SourceTable into DestinationTable
+INSERT INTO Patron (FirstName, MiddleName, LastName, BirthDate, Gender, EmailAddress, Education,
+Occupation, AddressLine1, AddressLine2) -- Replace Column1, Column2, Column3 with your specific column names
+SELECT FirstName, MiddleName, LastName, BirthDate, Gender, EmailAddress, Education,
+Occupation, AddressLine1, AddressLine2 -- Replace with the actual column names you want to copy
+FROM AdventureWorksDW2022.dbo.ProspectiveBuyer; -- Replace SourceTable with the name of your source table in SourceDB
+```
+
+
 
 
 ## 6. Sample Queries
