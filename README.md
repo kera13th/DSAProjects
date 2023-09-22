@@ -67,6 +67,11 @@ Fields include category ID and category name.
 
 # 5. Populate Database
 
+[Populate Tables](https://github.com/kera13th/DSAProjects/tree/LMS-Database)
+
+Here are the sample dataset that I used:
+[Books Sample Data](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)
+[AdventureWorks2022]
 
 
 # 6. Sample Queries
