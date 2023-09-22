@@ -178,6 +178,7 @@ Fields include transaction ID, book ID, patron ID, checkout date, return date.
 
 ## 5. Populate Database
 
+
 [Populate Tables](https://github.com/kera13th/DSAProjects/tree/LMS-Database)
 
 Here are the sample dataset that I used:
@@ -185,7 +186,10 @@ Here are the sample dataset that I used:
 For Book Table:
 [Kaggle - Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)
 
-For missing info on other columns like 'Copies', I randomly generated numbers using MS Excel using this formula
+I accomplished the task of populating the "Book" table by retrieving data from an established dataset acquired from Kaggle. Following this, I engaged in a meticulous process of restructuring the columns to seamlessly integrate with the architecture of the LMS (Learning Management System) Database, ensuring precise alignment with the required columns.
+
+To facilitate this data transformation, I opted for MS Excel as my tool of choice. Within Excel, I meticulously edited a CSV file, making necessary adjustments to the dataset. To enhance the richness and diversity of the data, I employed Excel's formula functionality to generate randomized entries for specific columns, thereby enriching the dataset with pertinent information.
+
 ```
 =INDEX(data!A:A, RANDBETWEEN(2,COUNTA(data!A:A)))
 ```
