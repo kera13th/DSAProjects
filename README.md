@@ -21,66 +21,87 @@ The LMS database follows a relational database model and is composed of several 
 
 ## 4. Tables and Descriptions
 
-### 4.1. Books
+### 4.1. Book Table
 
 Stores information about books in the library.
-Fields include ISBN, title, author ID, category ID, publication year, and available copies.
+Fields include ISBN, title, author ID, Genre ID, publication year, and available copies.
+
 ```
-+------------+----------------+----------------+-------------------+
-|   Column   |   Data Type    |  Description   |   Constraints     |
-+------------+----------------+----------------+-------------------+
-|            |                |                |                   |
-|  BookID    |     BIGINT     | Unique         |   NOT NULL        |
-|            |                | identifier for |                   |
-|            |                | the book.      |                   |
-|------------|----------------|----------------|-------------------|
-|  Title     | NVARCHAR(350)  | The title of   |   NOT NULL        |
-|            |                | the book.      |                   |
-|------------|----------------|----------------|-------------------|
-|  Author    | NVARCHAR(300)  | The author of  |   NOT NULL        |
-|            |                | the book.      |                   |
-|------------|----------------|----------------|-------------------|
-|  ISBN      | NVARCHAR(30)   | The            |   NOT NULL        |
-|            |                | International  |                   |
-|            |                | Standard Book  |                   |
-|            |                | Number (ISBN). |                   |
-|------------|----------------|----------------|-------------------|
-|  GenreID   |     BIGINT     | Unique         |   NOT NULL        |
-|            |                | identifier for |                   |
-|            |                | the genre of   |                   |
-|            |                | the book.      |                   |
-|------------|----------------|----------------|-------------------|
-|  LangCode  | NVARCHAR(30)   | The language   |                   |
-|            |                | code of the    |                   |
-|            |                | book.          |                   |
-|------------|----------------|----------------|-------------------|
-|  PageNum   |     BIGINT     | The number of  |                   |
-|            |                | pages in the   |                   |
-|            |                | book.          |                   |
-|------------|----------------|----------------|-------------------|
-|  PubDate   | NVARCHAR(300)  | The            |                   |
-|            |                | publication    |                   |
-|            |                | date of the    |                   |
-|            |                | book.          |                   |
-|------------|----------------|----------------|-------------------|
-|  Publisher | NVARCHAR(300)  | The publisher  |                   |
-|            |                | of the book.   |                   |
-|------------|----------------|----------------|-------------------|
-|  Copies    |     INT        | The number of  |                   |
-|            |                | copies         |                   |
-|            |                | available for  |                   |
-|            |                | the book.      |                   |
-|            |                |                |                   |
-+------------+----------------+----------------+-------------------+
++------------+----------------+-------------------+--------------+
+|   Column   |   Data Type    |   Description     | Constraints  |
++------------+----------------+-------------------+--------------+
+|            |                |                   |              |
+|  BookID    |     BIGINT     | Unique identifier |   NOT NULL   |
+|            |                | for the book.     |              |
+|------------|----------------|-------------------|--------------|
+|  Title     | NVARCHAR(350)  | The title of the  |   NOT NULL   |
+|            |                | book.             |              |
+|------------|----------------|-------------------|--------------|
+|  Author    | NVARCHAR(300)  | The author of the |   NOT NULL   |
+|            |                | book.             |              |
+|------------|----------------|-------------------|--------------|
+|  ISBN      | NVARCHAR(30)   | The International |   NOT NULL   |
+|            |                | Standard Book     |              |
+|            |                | Number (ISBN).    |              |
+|------------|----------------|-------------------|--------------|
+|  GenreID   |     BIGINT     | Unique identifier |   NOT NULL   |
+|            |                | for the genre of  |              |
+|            |                | the book.         |              |
+|------------|----------------|-------------------|--------------|
+|  LangCode  | NVARCHAR(30)   | The language code |              |
+|            |                | of the book.      |              |
+|------------|----------------|-------------------|--------------|
+|  PageNum   |     BIGINT     | The number of     |              |
+|            |                | pages in the book.|              |
+|------------|----------------|-------------------|--------------|
+|  PubDate   | NVARCHAR(300)  | The publication   |              |
+|            |                | date of the book. |              |
+|------------|----------------|-------------------|--------------|
+|  Publisher | NVARCHAR(300)  | The publisher of  |              |
+|            |                | the book.         |              |
+|------------|----------------|-------------------|--------------|
+|  Copies    |     INT        | The number of     |              |
+|            |                | copies available  |              |
+|            |                | for the book.     |              |
+|            |                |                   |              |
++------------+----------------+-------------------+--------------+
 ```
 
 ### 4.2. Genre
 Stores information about book authors.
 Fields include author ID, first name, and last name.
 
++------------+-------------+----------------+------------------+
+|   Column   |  Data Type  |  Description   |   Constraints    |
++------------+-------------+----------------+------------------+
+|            |             |                |                  |
+|  GenreID   |     INT     |   Primary Key  |                  |
+|            |             |   Identifier   |                  |
+|            |             |  for the Genre |                  |
+|------------|-------------|----------------|------------------|
+| GenreName  | NVARCHAR(60)|   Genre Name   |                  |
+|            |             |                |                  |
++------------+-------------+----------------+------------------+
+
+
 ### 4.3. Patrons
 Stores information about library patrons.
 Fields include patron ID, first name, last name, contact information.
+
+### 4.4. Membership Table
+
+```
++---------------+----------------+-------------------+--------------+
+|    Column     |   Data Type    |   Description     | Constraints  |
++---------------+----------------+-------------------+--------------+
+|               |                |                   |              |
+|  MembershipID | NVARCHAR(100)  | Unique identifier |   NOT NULL   |
+|               |                | for Membership.   |              |
+|---------------|----------------|-------------------|--------------|
+| MembershipType| NVARCHAR(50)   | Type of Membership|   NOT NULL   |
+|               |                |                   |              |
++---------------+----------------+-------------------+--------------+
+```
 
 ### 4.4. Transactions
 
