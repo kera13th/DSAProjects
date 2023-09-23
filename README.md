@@ -138,12 +138,12 @@ INSERT INTO Genre (GenreID,GenreName)
 VALUES
 (1,'Action/adventure Fiction'),
 (2,'Children’s Fiction'),
-(3,'Classic Fiction')
+(3,'Classic Fiction')...
 ```
 ![Genre Table Screenshot](https://drive.google.com/uc?export=download&id=17Sl3Na8nCvZ2Abc-OPO3J309nHijB3BA)
 
 
-##### For complete SQL Code, please refer to this link
+##### For complete SQL Code used, please refer to the link:
 [Populate Tables Script](https://github.com/kera13th/projects/edit/LMS-Database/populatetables_script)
 
 ## 6. Sample Queries
