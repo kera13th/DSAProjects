@@ -148,8 +148,8 @@ VALUES
 
 ## 6. Sample Queries
 
-
-> SELECT TOP 5
+```
+SELECT TOP 5
     Title,
     Author,
     GenreName,
@@ -176,7 +176,7 @@ JOIN
     Membership m ON p.MembershipID = m.MembershipID
 WHERE
     MembershipType = 'Librarian';
-```
+
 +---------+---------+---------+------------+
 | PatronID| FirstName| LastName| MembershipType |
 +---------+---------+---------+------------+
