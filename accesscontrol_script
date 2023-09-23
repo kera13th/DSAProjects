@@ -31,7 +31,7 @@ GRANT SELECT ON Genre TO member;
 -- Setting privilege for staff
 USE DSALibrary;
 GRANT SELECT, INSERT, UPDATE, DELETE ON Book TO librarystaff;
-GRANT SELECT, INSERT, UPDATE, DELETE ON BookIssuance TO librarystaff; 
+GRANT SELECT, INSERT, UPDATE ON BookIssuance TO librarystaff; 
 GRANT SELECT ON SCHEMA::dbo TO librarystaff;
 
 -- Setting privilege for librarian
