@@ -9,21 +9,19 @@ USE DSALibrary;
 CREATE LOGIN lmsadmin WITH PASSWORD = 'lmsadmin';
 CREATE USER lmsadminuser FOR LOGIN lmsadmin;
 
-CREATE LOGIN lmsstudent WITH PASSWORD = 'lmsstudent';
-CREATE USER lmsstudentuser FOR LOGIN lmsstudent;
+CREATE LOGIN dsalibrarymember WITH PASSWORD = 'dsalibrarymember';
+CREATE USER dsalibrarymemberuser FOR LOGIN dsalibrarymember;
 
-CREATE LOGIN lmsstaff WITH PASSWORD = 'lmsstaff';
-CREATE USER lmsstaffuser FOR LOGIN lmsstaff;
+CREATE LOGIN dsalibrarystaff WITH PASSWORD = 'dsalibrarystaff';
+CREATE USER dsalmsstaffuser FOR LOGIN dsalibrarystaff;
 
 -- Adding users to role
-USE Library;
+USE DSALibrary;
 EXEC sp_addrolemember 'librarian', 'lmsadminuser';
 
-USE Library;
-EXEC sp_addrolemember 'member', 'lmsstudentuser';
+EXEC sp_addrolemember 'member', 'dsalibrarymemberuser';
 
-USE Library;
-EXEC sp_addrolemember 'librarystaff', 'lmsstaffuser';
+EXEC sp_addrolemember 'librarystaff', 'dsalmsstaffuser';
 
 
 -- Setting privilege for member role/for students
