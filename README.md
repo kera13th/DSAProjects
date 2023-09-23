@@ -148,18 +148,64 @@ VALUES
 
 ## 6. Sample Queries
 
+
+> SELECT TOP 5
+    Title,
+    Author,
+    GenreName,
+    COUNT(*) AS TimesBorrowed
+FROM
+    BookIssuance bi
+JOIN
+    Book b ON bi.BookID = b.BookID
+JOIN
+    Genre g ON g.GenreID = b.GenreID
+GROUP BY
+    Title,
+    GenreName,
+    Author;
+
+SELECT
+    PatronID,
+    FirstName,
+    LastName,
+    MembershipType
+FROM
+    Patron p
+JOIN
+    Membership m ON p.MembershipID = m.MembershipID
+WHERE
+    MembershipType = 'Librarian';
 ```
-USE DSALibrary;
-Select TOP 5 Title, Author, GenreName,COUNT(*) AS TimesBorrowed FROM BookIssuance bi
-JOIN Book b ON bi.BookID = b.BookID
-JOIN Genre g ON g.GenreID = b.GenreID
-GROUP BY Title, GenreName, Author 
++---------+---------+---------+------------+
+| PatronID| FirstName| LastName| MembershipType |
++---------+---------+---------+------------+
+|   101   |  Adrian |  Murphy |   Librarian  |
++---------+---------+---------+------------+
 ```
+
+SELECT
+    DATEPART(YEAR, CheckOutDate) AS Year,
+    COUNT(*) AS TotalBooksBorrowed
+FROM
+    BookIssuance b
+JOIN
+    Patron p ON p.PatronID = b.PatronID
+WHERE
+    p.PatronID = '222'
+GROUP BY
+    DATEPART(YEAR, CheckOutDate);
+
 ```
-SELECT PatronID, FirstName, LastName, MembershipType
-From Patron p JOIN Membership m ON p.MembershipID = m.MembershipID
-WHERE MembershipType = 'Librarian'
-```
+>
++------+-------------------+
+| Year | TotalBooksBorrowed |
++------+-------------------+
+| 2011 |         3         |
+| 2012 |         1         |
+| 2013 |        16         |
++------+-------------------+
+
 
 ## 7. Set Access Control (DCL)
 Retrieve a list of all books in a specific category.
