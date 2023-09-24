@@ -7,11 +7,11 @@ This document provides an overview and documentation of the Library Management S
 ### 2. Database Schema
 
 The LMS database follows a relational database model and is composed of several tables connected through relationships. The primary entities include:
-•	Book
-•	Patron
-•	Membership
-•	Book Issuance (checkouts, returns)
-•	Genre (book genres)
++	Book
++	Patron
++	Membership
++	Book Issuance (checkouts, returns)
++	Genre (book genres)
 
 [Setup Database in SSMS using this script](https://github.com/kera13th/DSAProjects/blob/LMS-Database/lmsdatabase_script)
 
@@ -197,7 +197,8 @@ GROUP BY
     DATEPART(YEAR, CheckOutDate);
 
 ```
->
+Output
+```
 +------+-------------------+
 | Year | TotalBooksBorrowed |
 +------+-------------------+
@@ -205,6 +206,34 @@ GROUP BY
 | 2012 |         1         |
 | 2013 |        16         |
 +------+-------------------+
+```
+Total Checkouts Categorized by Occupation for Year 2014
+```
+SELECT
+    Occupation,
+    COUNT(*) AS CheckOutsForYr2014
+FROM
+    BookIssuance bi
+JOIN
+    Patron p ON p.PatronID = bi.PatronID
+WHERE
+    YEAR(CheckoutDate) = 2014 AND Occupation <> 'Database Admin'
+GROUP BY
+    Occupation;
+```
+Output
+```
++--------------+-------------------+
+|  Occupation  | CheckOutsForYr2014 |
++--------------+-------------------+
+| Professional |        557        |
+|   Clerical   |        320        |
+|    Manual    |        247        |
+|  Management  |        364        |
+|  Librarian   |         1         |
+| Skilled Manual|       480        |
++--------------+-------------------+
+```
 
 
 ## 7. Set Access Control (DCL)
