@@ -148,6 +148,7 @@ VALUES
 
 ## 6. Sample Queries
 
+1. 
 ```
 SELECT TOP 5
     Title,
@@ -165,6 +166,11 @@ GROUP BY
     GenreName,
     Author;
 
+-- Output
+```
+
+2. 
+```
 SELECT
     PatronID,
     FirstName,
@@ -177,37 +183,15 @@ JOIN
 WHERE
     MembershipType = 'Librarian';
 
-+---------+---------+---------+------------+
+-- Output
++---------+---------+----------+----------------+
 | PatronID| FirstName| LastName| MembershipType |
-+---------+---------+---------+------------+
-|   101   |  Adrian |  Murphy |   Librarian  |
-+---------+---------+---------+------------+
++---------+---------+----------+----------------+
+|   101   |  Adrian |  Murphy  |   Librarian    |
++---------+---------+----------+----------------+
 ```
 
-SELECT
-    DATEPART(YEAR, CheckOutDate) AS Year,
-    COUNT(*) AS TotalBooksBorrowed
-FROM
-    BookIssuance b
-JOIN
-    Patron p ON p.PatronID = b.PatronID
-WHERE
-    p.PatronID = '222'
-GROUP BY
-    DATEPART(YEAR, CheckOutDate);
-
-```
-Output
-```
-+------+-------------------+
-| Year | TotalBooksBorrowed |
-+------+-------------------+
-| 2011 |         3         |
-| 2012 |         1         |
-| 2013 |        16         |
-+------+-------------------+
-```
-Total Checkouts Categorized by Occupation for Year 2014
+3. Total Checkouts Categorized by Occupation for Year 2014
 ```
 SELECT
     Occupation,
@@ -220,9 +204,8 @@ WHERE
     YEAR(CheckoutDate) = 2014 AND Occupation <> 'Database Admin'
 GROUP BY
     Occupation;
-```
-Output
-```
+
+-- Output
 +--------------+-------------------+
 |  Occupation  | CheckOutsForYr2014 |
 +--------------+-------------------+
