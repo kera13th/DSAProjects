@@ -146,30 +146,9 @@ VALUES
 ##### For complete SQL Code used, please refer to the link:
 [Populate Tables Script](https://github.com/kera13th/projects/edit/LMS-Database/populatetables_script)
 
-## 6. Sample Queries
-
-1. 
-```
-SELECT TOP 5
-    Title,
-    Author,
-    GenreName,
-    COUNT(*) AS TimesBorrowed
-FROM
-    BookIssuance bi
-JOIN
-    Book b ON bi.BookID = b.BookID
-JOIN
-    Genre g ON g.GenreID = b.GenreID
-GROUP BY
-    Title,
-    GenreName,
-    Author;
-
--- Output
-```
-
-2. 
+### 6. Sample Queries
+<details>
+<summary>1. Checking who is the librarian of DSA Library</summary>
 ```
 SELECT
     PatronID,
@@ -190,12 +169,10 @@ WHERE
 |   101   |  Adrian |  Murphy  |   Librarian    |
 +---------+---------+----------+----------------+
 ```
+</details>
+
 <details>
-<summary>Total Checkouts Categorized by Occupation for Year 2014</summary>
-
-
-
-
+<summary>2. Total Borrows Categorized by Occupation for Year 2014</summary>
 ```
 SELECT
     Occupation,
@@ -222,6 +199,32 @@ GROUP BY
 +--------------+-------------------+
 ```
 </details>
+
+<details>
+<summary>2. Add title</summary>
+```
+SELECT TOP 5
+    Title,
+    Author,
+    GenreName,
+    COUNT(*) AS TimesBorrowed
+FROM
+    BookIssuance bi
+JOIN
+    Book b ON bi.BookID = b.BookID
+JOIN
+    Genre g ON g.GenreID = b.GenreID
+GROUP BY
+    Title,
+    GenreName,
+    Author;
+
+-- Output
+```
+</details>
+
+
+
 
 ## 7. Set Access Control (DCL)
 Retrieve a list of all books in a specific category.
