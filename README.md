@@ -147,8 +147,7 @@ VALUES
 [Populate Tables Script](https://github.com/kera13th/projects/edit/LMS-Database/populatetables_script)
 
 ### 6. Sample Queries
-<details>
-<summary>1. Checking who is the librarian of DSA Library</summary>
+1. Checking who is the librarian of DSA Library
 ```
 SELECT
     PatronID,
@@ -161,8 +160,8 @@ JOIN
     Membership m ON p.MembershipID = m.MembershipID
 WHERE
     MembershipType = 'Librarian';
- ```
-</details>
+```
+
 ```
 -- Output
 +---------+---------+----------+----------------+
@@ -187,6 +186,7 @@ WHERE
     YEAR(CheckoutDate) = 2014 AND Occupation <> 'Database Admin'
 GROUP BY
     Occupation;
+```
 </details>
 
 -- Output
