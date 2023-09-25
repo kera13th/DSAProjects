@@ -161,7 +161,9 @@ JOIN
     Membership m ON p.MembershipID = m.MembershipID
 WHERE
     MembershipType = 'Librarian';
-
+ ```
+</details>
+```
 -- Output
 +---------+---------+----------+----------------+
 | PatronID| FirstName| LastName| MembershipType |
@@ -169,7 +171,7 @@ WHERE
 |   101   |  Adrian |  Murphy  |   Librarian    |
 +---------+---------+----------+----------------+
 ```
-</details>
+
 
 <details>
 <summary>2. Total Borrows Categorized by Occupation for Year 2014</summary>
@@ -185,8 +187,11 @@ WHERE
     YEAR(CheckoutDate) = 2014 AND Occupation <> 'Database Admin'
 GROUP BY
     Occupation;
+</details>
 
 -- Output
+
+```
 +--------------+-------------------+
 |  Occupation  | CheckOutsForYr2014 |
 +--------------+-------------------+
@@ -198,7 +203,7 @@ GROUP BY
 | Skilled Manual|       480        |
 +--------------+-------------------+
 ```
-</details>
+
 
 <details>
 <summary>2. Add title</summary>
