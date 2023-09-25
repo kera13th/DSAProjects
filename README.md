@@ -147,7 +147,7 @@ VALUES
 [Populate Tables Script](https://github.com/kera13th/projects/edit/LMS-Database/populatetables_script)
 
 ### 6. Sample Queries
-1. Checking who is the librarian of DSA Library
+###### 1. Checking who is the librarian of DSA Library
 ```
 SELECT
     PatronID,
@@ -161,7 +161,7 @@ JOIN
 WHERE
     MembershipType = 'Librarian';
 ```
-Output
+###### Query Result:
 ```
 +---------+---------+----------+----------------+
 | PatronID| FirstName| LastName| MembershipType |
@@ -170,7 +170,7 @@ Output
 +---------+---------+----------+----------------+
 ```
 
-2. Total Borrows Categorized by Occupation for Year 2014
+###### 2. Total Borrows Categorized by Occupation for Year 2014
 ```
 SELECT
     Occupation,
@@ -184,7 +184,7 @@ WHERE
 GROUP BY
     Occupation;
 ```
-Output
+###### Output
 
 ```
 +--------------+-------------------+
@@ -198,7 +198,7 @@ Output
 | Skilled Manual|       480        |
 +--------------+-------------------+
 ```
-2. Add title
+###### 2. Add title
 ```
 SELECT TOP 5
     Title,
@@ -216,7 +216,7 @@ GROUP BY
     GenreName,
     Author;
 ```
-Output
+###### Output
 ```
 
 
