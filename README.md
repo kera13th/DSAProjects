@@ -190,8 +190,12 @@ WHERE
 |   101   |  Adrian |  Murphy  |   Librarian    |
 +---------+---------+----------+----------------+
 ```
+<details>
+<summary>Total Checkouts Categorized by Occupation for Year 2014</summary>
 
-3. Total Checkouts Categorized by Occupation for Year 2014
+
+
+
 ```
 SELECT
     Occupation,
@@ -217,7 +221,7 @@ GROUP BY
 | Skilled Manual|       480        |
 +--------------+-------------------+
 ```
-
+</details>
 
 ## 7. Set Access Control (DCL)
 Retrieve a list of all books in a specific category.
