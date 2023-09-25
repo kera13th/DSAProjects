@@ -161,9 +161,8 @@ JOIN
 WHERE
     MembershipType = 'Librarian';
 ```
-
+Output
 ```
--- Output
 +---------+---------+----------+----------------+
 | PatronID| FirstName| LastName| MembershipType |
 +---------+---------+----------+----------------+
@@ -171,9 +170,7 @@ WHERE
 +---------+---------+----------+----------------+
 ```
 
-
-<details>
-<summary>2. Total Borrows Categorized by Occupation for Year 2014</summary>
+2. Total Borrows Categorized by Occupation for Year 2014
 ```
 SELECT
     Occupation,
@@ -187,9 +184,7 @@ WHERE
 GROUP BY
     Occupation;
 ```
-</details>
-
--- Output
+Output
 
 ```
 +--------------+-------------------+
@@ -203,10 +198,7 @@ GROUP BY
 | Skilled Manual|       480        |
 +--------------+-------------------+
 ```
-
-
-<details>
-<summary>2. Add title</summary>
+2. Add title
 ```
 SELECT TOP 5
     Title,
@@ -223,11 +215,12 @@ GROUP BY
     Title,
     GenreName,
     Author;
-
--- Output
 ```
-</details>
+Output
+```
 
+
+```
 
 
 
