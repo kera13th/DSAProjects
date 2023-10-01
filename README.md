@@ -198,7 +198,7 @@ GROUP BY
 | Skilled Manual|       480        |
 +--------------+-------------------+
 ```
-###### 2. Add title
+###### 2. Querying the TOP 5 most borrowed books
 ```
 SELECT TOP 5
     Title,
@@ -224,7 +224,7 @@ GROUP BY
 
 
 
-## 7. Set Access Control (DCL) /  User Roles and Permissions
+## 7. User Roles and Permissions
 #### 7.1. Create Roles
 
 Three roles are created: librarian, librarystaff, and member. These roles are often used to group users based on their roles or responsibilities within the database.
@@ -291,19 +291,9 @@ GRANT VIEW DEFINITION TO librarian;
 GRANT SELECT, INSERT, UPDATE, DELETE ON DATABASE::DSALibrary TO librarian;
 ```
 
-### 8. User Roles and Permissions
+Simulate User Interactions
 
-Administrator: Full access to all database functions.
-Librarian: Can manage books, patrons, and transactions.
-Patron: Can view available books and borrow/return books.
+### 8. Revision History
+Version 1.0 (10/01/2023): Initial database design.
 
-### 9. Maintenance and Backup Procedures
-
-Regular backups are scheduled weekly.
-Maintenance tasks, such as index optimization, are performed monthly.
-
-### 10. Revision History
-Version 1.0 (Date): Initial database design.
-Version 1.1 (Date): Added transaction history for patrons.
-Version 2.0 (Date): Enhanced backup and maintenance procedures.
 This documentation serves as a reference for those involved in managing and using the Library Management System database. It provides insights into the database's structure, relationships, and usage, helping ensure the efficient operation of the library system.
