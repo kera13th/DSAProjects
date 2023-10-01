@@ -224,25 +224,42 @@ GROUP BY
 
 
 
-## 7. Set Access Control (DCL)
-Retrieve a list of all books in a specific category.
-Check the number of available copies of a book.
-View a patron's borrowing history.
-Add a new book to the collection.
-Check out a book to a patron.
+## 7. Set Access Control (DCL) /  User Roles and Permissions
+#### 7.1. Create Roles
 
-### 6. User Roles and Permissions
+Three roles are created: librarian, librarystaff, and member. These roles are often used to group users based on their roles or responsibilities within the database.
+
+#### 7.2. Add Users
+
+User logins are created for different users who will access the database. For example, lmsadmin, dsalibrarymember, and dsalibrarystaff logins are created.
+Corresponding database users (lmsadminuser, dsalibrarymemberuser, and dsalmsstaffuser) are created and associated with these logins.
+
+#### 7.3. Adding Users to Role:
+
+Users are added to the appropriate roles. For instance, lmsadminuser is added to the librarian role, dsalibrarymemberuser is added to the member role, and dsalmsstaffuser is added to the librarystaff role.
+Setting Privileges for Member Role:
+
+Members (likely students or general users) are granted SELECT privileges on the Book and Genre tables. This means they can only read data from these tables.
+#### 7.4. Setting Privileges for Staff:
+
+Library staff members are granted more extensive privileges. They are given SELECT, INSERT, UPDATE, and DELETE privileges on the Book table, SELECT, INSERT, and UPDATE privileges on the BookIssuance table, and SELECT privileges on the database schema.
+#### 7.5. Setting Privileges for Librarian:
+
+Librarians are granted extensive privileges, including SELECT, INSERT, UPDATE, and DELETE permissions on all tables in the schema, EXECUTE permissions on all stored procedures and functions in the database, VIEW DEFINITION permission to see object metadata, and additional SELECT, INSERT, UPDATE, and DELETE permissions on the entire database.
+This script essentially sets up a role-based access control system for the database, allowing different levels of access and permissions based on user roles. It's a common practice to ensure that users only have the necessary privileges to perform their specific tasks within the database while maintaining security and data integrity.
+
+### 8. User Roles and Permissions
 
 Administrator: Full access to all database functions.
 Librarian: Can manage books, patrons, and transactions.
 Patron: Can view available books and borrow/return books.
 
-### 7. Maintenance and Backup Procedures
+### 9. Maintenance and Backup Procedures
 
 Regular backups are scheduled weekly.
 Maintenance tasks, such as index optimization, are performed monthly.
 
-### 8. Revision History
+### 10. Revision History
 Version 1.0 (Date): Initial database design.
 Version 1.1 (Date): Added transaction history for patrons.
 Version 2.0 (Date): Enhanced backup and maintenance procedures.
