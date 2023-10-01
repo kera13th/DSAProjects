@@ -1,4 +1,4 @@
-### DSA SQL MASTERCLASS
+## DSA SQL MASTERCLASS
 ## Library Management System Database Documentation
 
 ### 1. Introduction
@@ -231,18 +231,18 @@ View a patron's borrowing history.
 Add a new book to the collection.
 Check out a book to a patron.
 
-## 6. User Roles and Permissions
+### 6. User Roles and Permissions
 
 Administrator: Full access to all database functions.
 Librarian: Can manage books, patrons, and transactions.
 Patron: Can view available books and borrow/return books.
 
-# 7. Maintenance and Backup Procedures
+### 7. Maintenance and Backup Procedures
 
 Regular backups are scheduled weekly.
 Maintenance tasks, such as index optimization, are performed monthly.
 
-# 8. Revision History
+### 8. Revision History
 Version 1.0 (Date): Initial database design.
 Version 1.1 (Date): Added transaction history for patrons.
 Version 2.0 (Date): Enhanced backup and maintenance procedures.
