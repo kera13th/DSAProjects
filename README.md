@@ -248,6 +248,49 @@ Library staff members are granted more extensive privileges. They are given SELE
 Librarians are granted extensive privileges, including SELECT, INSERT, UPDATE, and DELETE permissions on all tables in the schema, EXECUTE permissions on all stored procedures and functions in the database, VIEW DEFINITION permission to see object metadata, and additional SELECT, INSERT, UPDATE, and DELETE permissions on the entire database.
 This script essentially sets up a role-based access control system for the database, allowing different levels of access and permissions based on user roles. It's a common practice to ensure that users only have the necessary privileges to perform their specific tasks within the database while maintaining security and data integrity.
 
+```
+-- CREATE ROLES -- 
+USE DSALibrary;
+CREATE ROLE librarian;
+CREATE ROLE librarystaff;
+CREATE ROLE member;
+
+-- Add users
+USE DSALibrary;
+CREATE LOGIN lmsadmin WITH PASSWORD = 'lmsadmin';
+CREATE USER lmsadminuser FOR LOGIN lmsadmin;
+
+CREATE LOGIN dsalibrarymember WITH PASSWORD = 'dsalibrarymember';
+CREATE USER dsalibrarymemberuser FOR LOGIN dsalibrarymember;
+
+CREATE LOGIN dsalibrarystaff WITH PASSWORD = 'dsalibrarystaff';
+CREATE USER dsalmsstaffuser FOR LOGIN dsalibrarystaff;
+
+-- Adding users to role
+USE DSALibrary;
+EXEC sp_addrolemember 'librarian', 'lmsadminuser';
+EXEC sp_addrolemember 'member', 'dsalibrarymemberuser';
+EXEC sp_addrolemember 'librarystaff', 'dsalmsstaffuser';
+
+-- Setting privilege for member role/for students
+GRANT SELECT ON Book TO member;
+GRANT SELECT ON Genre TO member;
+
+-- Setting privilege for staff
+GRANT SELECT, INSERT, UPDATE, DELETE ON Book TO librarystaff;
+GRANT SELECT, INSERT, UPDATE ON BookIssuance TO librarystaff; 
+GRANT SELECT ON SCHEMA::dbo TO librarystaff;
+
+-- Setting privilege for librarian
+-- Grant SELECT, INSERT, UPDATE, DELETE on all tables in the schema
+GRANT SELECT, INSERT, UPDATE, DELETE ON SCHEMA::dbo TO librarian;
+-- Grant EXECUTE permission on all stored procedures and functions
+GRANT EXECUTE ON DATABASE::DSALibrary TO librarian;
+-- Grant VIEW DEFINITION permission (ability to see object metadata)
+GRANT VIEW DEFINITION TO librarian;
+GRANT SELECT, INSERT, UPDATE, DELETE ON DATABASE::DSALibrary TO librarian;
+```
+
 ### 8. User Roles and Permissions
 
 Administrator: Full access to all database functions.
