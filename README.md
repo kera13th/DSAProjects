@@ -241,8 +241,9 @@ Three roles are created: librarian, librarystaff, and member. These roles are of
 
 #### 7.2. Add Users
 
-User logins are created for different users who will access the database. For example, lmsadmin, dsalibrarymember, and dsalibrarystaff logins are created.
-Corresponding database users (lmsadminuser, dsalibrarymemberuser, and dsalmsstaffuser) are created and associated with these logins.
+User logins are created for different users who will access the database. For example, lmsadmin, dsalibrarymember, and dsalibrarystaff logins are created. Corresponding database users (lmsadminuser, dsalibrarymemberuser, and dsalmsstaffuser) are created and associated with these logins.
+
+![Screenshot of Users](https://drive.google.com/uc?export=download&id=18fW3Q_rZr9mun87yodM8db3Cd-gAdGFA)
 
 #### 7.3. Adding Users to Role:
 
@@ -250,9 +251,11 @@ Users are added to the appropriate roles. For instance, lmsadminuser is added to
 Setting Privileges for Member Role:
 
 Members (likely students or general users) are granted SELECT privileges on the Book and Genre tables. This means they can only read data from these tables.
+
 #### 7.4. Setting Privileges for Staff:
 
 Library staff members are granted more extensive privileges. They are given SELECT, INSERT, UPDATE, and DELETE privileges on the Book table, SELECT, INSERT, and UPDATE privileges on the BookIssuance table, and SELECT privileges on the database schema.
+
 #### 7.5. Setting Privileges for Librarian:
 
 Librarians are granted extensive privileges, including SELECT, INSERT, UPDATE, and DELETE permissions on all tables in the schema, EXECUTE permissions on all stored procedures and functions in the database, VIEW DEFINITION permission to see object metadata, and additional SELECT, INSERT, UPDATE, and DELETE permissions on the entire database.
@@ -302,6 +305,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON DATABASE::DSALibrary TO librarian;
 ```
 
 Simulate User Interactions
+Librarian
+![Librarian Access](https://drive.google.com/uc?export=download&id=18Ouqan0HE3aK9iF4la9RO9FGJQ-_bNvj)
+
+Staff
+![Staff Access](https://drive.google.com/uc?export=download&id=18WqHJz4KUvgXuaPOOfblEuEWI-EcEuWW)
+
+Member
+![Member Access](https://drive.google.com/uc?export=download&id=18GIdbh7NDTS6DxYgnoZCJsWLdPDRbEa0)
 
 ### 8. Power BI Dashboard 
 
