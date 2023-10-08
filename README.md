@@ -1,4 +1,4 @@
-## DSA SQL MASTERCLASS PROJECT BY KAREN SANTIAGO
+#### DSA SQL MASTERCLASS PROJECT BY KAREN SANTIAGO
 ## Library Management System Database Documentation
 
 ### 1. Introduction
