@@ -13,7 +13,102 @@ The LMS database follows a relational database model and is composed of several 
 +	Book Issuance (checkouts, returns)
 +	Genre (book genres)
 
-[Setup Database in SSMS using this script](https://github.com/kera13th/DSAProjects/blob/LMS-Database/lmsdatabase_script)
+```
+-- Create Database
+CREATE DATABASE DSALibrary;
+
+USE DSALibrary;
+
+-- Create Book Table
+CREATE TABLE Book (
+BookID BIGINT IDENTITY(1,1), --will automatically generate numbering for bookID
+Title NVARCHAR(350) NOT NULL,
+Author NVARCHAR(300) NOT NULL,
+isbn NVARCHAR(30) NOT NULL,
+GenreID BIGINT NOT NULL,
+LangCode NVARCHAR(30),
+PageNum BIGINT,
+PublicationDate NVARCHAR(300),
+Publisher NVARCHAR(300),
+Copies INT
+);
+
+-- Create Genre Table
+CREATE TABLE Genre (
+GenreID BIGINT NOT NULL,
+GenreName NVARCHAR(60)
+);
+
+CREATE TABLE Membership (
+MembershipID NVARCHAR(100) NOT NULL,
+MembershipType NVARCHAR(50) NOT NULL,
+);
+
+-- Create Patron Table
+CREATE TABLE Patron (
+PatronID BIGINT IDENTITY(1,1) NOT NULL,
+MembershipID INT DEFAULT 1,
+FirstName NVARCHAR(50) NOT NULL,
+Middlename NVARCHAR(50),
+LastName NVARCHAR(50) NOT NULL,
+BirthDate DATETIME,
+Gender NVARCHAR(1),
+EmailAddress NVARCHAR(40),
+Education NVARCHAR(40),
+Occupation NVARCHAR(100),
+AddressLine1 NVARCHAR(120),
+AddressLine2 NVARCHAR(120), 
+);
+
+-- Create BookIssuance Table
+CREATE TABLE BookIssuance (
+TransactionID BIGINT IDENTITY(1,1) NOT NULL,
+CheckoutOrderID NVARCHAR(20) NOT NULL,
+BookID BIGINT,
+PatronID BIGINT,
+CheckoutDate DATETIME NULL,
+DueDate DATETIME NULL,
+ReturnDate DATETIME NULL,
+);
+
+-- SETTING PRIMARY KEYS FOR BOOK TABLE --
+ALTER TABLE Book
+ADD CONSTRAINT PK_Book_BookID PRIMARY KEY (BookID);
+
+ALTER TABLE BookIssuance
+ADD CONSTRAINT PK_BookIssuance_TransactionID PRIMARY KEY (TransactionID);
+
+ALTER TABLE Genre
+ADD CONSTRAINT PK_Genre_GenreID  PRIMARY KEY (GenreID);
+
+ALTER TABLE Membership
+ADD CONSTRAINT PK_Membership_MembershipID PRIMARY KEY (MembershipID);
+
+ALTER TABLE Patron
+ADD CONSTRAINT PK_Patron_PatronID PRIMARY KEY (PatronID);
+
+-- SETTING FOREIGN KEYS --
+
+ALTER TABLE Book
+ADD CONSTRAINT FK_Book_GenreID
+FOREIGN KEY (GenreID)
+REFERENCES Genre(GenreID);
+
+ALTER TABLE BookIssuance
+ADD CONSTRAINT FK_BookIssuance_PatronID
+FOREIGN KEY (PatronID)
+REFERENCES Patron (PatronID);
+
+ALTER TABLE BookIssuance
+ADD CONSTRAINT FK_BookIssuance_BookID
+FOREIGN KEY (BookID)
+REFERENCES Book (BookID);
+
+ALTER TABLE Patron
+ADD CONSTRAINT FK_Patron_MembershipID
+FOREIGN KEY (MembershipID)
+REFERENCES Membership (MembershipID);
+```
 
 ### 3. Entity-Relationship Diagram (ERD)
 
