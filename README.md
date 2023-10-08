@@ -243,6 +243,19 @@ Three roles are created: librarian, librarystaff, and member. These roles are of
 
 User logins are created for different users who will access the database. For example, lmsadmin, dsalibrarymember, and dsalibrarystaff logins are created. Corresponding database users (lmsadminuser, dsalibrarymemberuser, and dsalmsstaffuser) are created and associated with these logins.
 
+```
+-- Add users
+USE DSALibrary;
+CREATE LOGIN lmsadmin WITH PASSWORD = 'lmsadmin';
+CREATE USER lmsadminuser FOR LOGIN lmsadmin;
+
+CREATE LOGIN dsalibrarymember WITH PASSWORD = 'dsalibrarymember';
+CREATE USER dsalibrarymemberuser FOR LOGIN dsalibrarymember;
+
+CREATE LOGIN dsalibrarystaff WITH PASSWORD = 'dsalibrarystaff';
+CREATE USER dsalmsstaffuser FOR LOGIN dsalibrarystaff;
+```
+
 ![Screenshot of Users](https://drive.google.com/uc?export=download&id=18fW3Q_rZr9mun87yodM8db3Cd-gAdGFA)
 
 #### 7.3. Adding Users to Role:
@@ -251,6 +264,20 @@ Users are added to the appropriate roles. For instance, lmsadminuser is added to
 Setting Privileges for Member Role:
 
 Members (likely students or general users) are granted SELECT privileges on the Book and Genre tables. This means they can only read data from these tables.
+
+```
+-- CREATE ROLES -- 
+USE DSALibrary;
+CREATE ROLE librarian;
+CREATE ROLE librarystaff;
+CREATE ROLE member;
+
+-- Adding users to role
+USE DSALibrary;
+EXEC sp_addrolemember 'librarian', 'lmsadminuser';
+EXEC sp_addrolemember 'member', 'dsalibrarymemberuser';
+EXEC sp_addrolemember 'librarystaff', 'dsalmsstaffuser';
+```
 
 #### 7.4. Setting Privileges for Staff:
 
@@ -262,29 +289,6 @@ Librarians are granted extensive privileges, including SELECT, INSERT, UPDATE, a
 This script essentially sets up a role-based access control system for the database, allowing different levels of access and permissions based on user roles. It's a common practice to ensure that users only have the necessary privileges to perform their specific tasks within the database while maintaining security and data integrity.
 
 ```
--- CREATE ROLES -- 
-USE DSALibrary;
-CREATE ROLE librarian;
-CREATE ROLE librarystaff;
-CREATE ROLE member;
-
--- Add users
-USE DSALibrary;
-CREATE LOGIN lmsadmin WITH PASSWORD = 'lmsadmin';
-CREATE USER lmsadminuser FOR LOGIN lmsadmin;
-
-CREATE LOGIN dsalibrarymember WITH PASSWORD = 'dsalibrarymember';
-CREATE USER dsalibrarymemberuser FOR LOGIN dsalibrarymember;
-
-CREATE LOGIN dsalibrarystaff WITH PASSWORD = 'dsalibrarystaff';
-CREATE USER dsalmsstaffuser FOR LOGIN dsalibrarystaff;
-
--- Adding users to role
-USE DSALibrary;
-EXEC sp_addrolemember 'librarian', 'lmsadminuser';
-EXEC sp_addrolemember 'member', 'dsalibrarymemberuser';
-EXEC sp_addrolemember 'librarystaff', 'dsalmsstaffuser';
-
 -- Setting privilege for member role/for students
 GRANT SELECT ON Book TO member;
 GRANT SELECT ON Genre TO member;
@@ -308,7 +312,7 @@ Simulate User Interactions
 Librarian
 ![Librarian Access](https://drive.google.com/uc?export=download&id=18Ouqan0HE3aK9iF4la9RO9FGJQ-_bNvj)
 
-Staff
+Adding new book entry on Book Table
 ![Staff Access](https://drive.google.com/uc?export=download&id=18WqHJz4KUvgXuaPOOfblEuEWI-EcEuWW)
 
 Member
