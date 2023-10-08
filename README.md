@@ -130,7 +130,7 @@ VALUES
 (3,'Librarian'),
 (4,'Database Admin');
 ```
-![Membership Table Screenshot](https://drive.google.com/uc?export=download&id=17pi_vxjXB0rFrkDvqdgSASMyQQwhYiTi)
+![Membership Table Screenshot](https://drive.google.com/uc?export=download&id=17Tx-EjiSkyB_yjQayyRNLyPTewwHLozU)
 
 #### :minidisc: Populating Genre Table
 
@@ -219,6 +219,15 @@ GROUP BY
 ```
 ###### Output
 ```
++---------------------------------------------------+---------------------------------------------------+-----------------------+---------------+
+| Title                                             | Author                                            | GenreName             | TimesBorrowed |
++---------------------------------------------------+---------------------------------------------------+-----------------------+---------------+
+| 100 Years of Lynchings                            | Ralph Ginzburg                                    | Classic Fiction       | 234           |
+| 1776                                              | David McCullough                                 | Biography             | 216           |
+| 1776                                              | Peter Stone/Sherman Edwards                     | Biography             | 232           |
+| A Changeling for All Seasons (Changeling Seasons #1) | Angela Knight/Sahara Kelly/Judy Mays/Marteeka Karland/Kate Douglas/Shelby Morgen/Lacey Savage/Kate Hill/Willa Okati | Western | 231           |
+| A Killing Rain (Louis Kincaid  #6)                | P.J. Parrish                                     | Religion & Spirituality | 248           |
++---------------------------------------------------+---------------------------------------------------+-----------------------+---------------+
 
 
 ```
