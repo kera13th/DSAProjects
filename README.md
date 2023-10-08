@@ -309,13 +309,13 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON DATABASE::DSALibrary TO librarian;
 ```
 
 Simulate User Interactions
-Librarian
+Librarian User: 1. Adding new member in Patron table (left image), 2. Querying the newly added member
 ![Librarian Access](https://drive.google.com/uc?export=download&id=18Ouqan0HE3aK9iF4la9RO9FGJQ-_bNvj)
 
-Adding new book entry on Book Table
+Staff User: Adding new book entry on Book Table
 ![Staff Access](https://drive.google.com/uc?export=download&id=18WqHJz4KUvgXuaPOOfblEuEWI-EcEuWW)
 
-Member
+Member User: 1. Querying Patron and Book Issuance Table (left image), 2. Querying book Info (right)
 ![Member Access](https://drive.google.com/uc?export=download&id=18GIdbh7NDTS6DxYgnoZCJsWLdPDRbEa0)
 
 ### 8. Power BI Dashboard 
@@ -342,7 +342,7 @@ Gain insights into user behavior and preferences.
 
 4. Overdue Activity:
 
-Moonitor and track loaned books that are past due date.
+Monitor and track loaned books that are past due date.
 
 
 ### 9. Revision History
