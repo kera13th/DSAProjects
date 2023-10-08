@@ -293,7 +293,34 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON DATABASE::DSALibrary TO librarian;
 
 Simulate User Interactions
 
-### 8. Revision History
+### 8. Power BI Dashboard 
+
+![LMS Dashboard](https://drive.google.com/uc?export=download&id=18cmhYnS_Y3P7tJQBjzyBuz7rt8EAYcXj)
+
+ This comprehensive guide provides an in-depth overview of the dashboard's functionalities and features, designed to empower library professionals and administrators with efficient tools for library management and data-driven decision-making.
+
+#### Key Features:
+
+1. Insights:
+
+Analyze borrowing patterns and historical trends.
+Explore membership trends, types, and demographics.
+
+2. Book Analytics:
+Discover insights into our library's extensive book collection.
+Identify the how many books were borrowed, Identify overdue records, and total number of members.
+
+3. Book Issuance Activity:
+
+Monitor book issuance activities within the library.
+Gain insights into user behavior and preferences.
+
+4. Overdue Activity:
+
+Moonitor and track loaned books that are past due date.
+
+
+### 9. Revision History
 Version 1.0 (10/01/2023): Initial database design.
 
 This documentation serves as a reference for those involved in managing and using the Library Management System database. It provides insights into the database's structure, relationships, and usage, helping ensure the efficient operation of the library system.
