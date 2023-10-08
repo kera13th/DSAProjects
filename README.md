@@ -115,9 +115,10 @@ FROM AdventureWorksDW2022.dbo.ProspectiveBuyer; -- Replace SourceTable with the 
 ```
 Testing the table if populated properly
 
-![Patron Table Screenshot](https://drive.google.com/uc?export=download&id=17H5BP9egBqctM7LvRCuB6eLlwC0s2OHm)](https://drive.google.com/uc?export=download&id=17IPgWt4z_28P_zFUdN0X-1MQUAavAi0q)
+![Patron Table Screenshot](https://drive.google.com/uc?export=download&id=17H5BP9egBqctM7LvRCuB6eLlwC0s2OHm)
  
 #### :minidisc: Populating BookIssuance Table
+![BookIssuance Table Screenshot](https://drive.google.com/uc?export=download&id=18AzxFAjxQGtxm5Foq4nr_m7oSls1h2Ss)
 
 #### :minidisc: Populating Membership Table
 
