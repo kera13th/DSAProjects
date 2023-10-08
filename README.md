@@ -322,7 +322,10 @@ Member User: 1. Querying Patron and Book Issuance Table (left image), 2. Queryin
 
 ![LMS Dashboard](https://drive.google.com/uc?export=download&id=18cmhYnS_Y3P7tJQBjzyBuz7rt8EAYcXj)
 
- This comprehensive guide provides an in-depth overview of the dashboard's functionalities and features, designed to empower library professionals and administrators with efficient tools for library management and data-driven decision-making.
+This comprehensive guide provides an in-depth overview of the dashboard's functionalities and features, designed to empower library professionals and administrators with efficient tools for library management and data-driven decision-making. 
+#### Data Source:
+
+The data utilized in this dashboard is sourced directly from the SQL database meticulously crafted for our library management system. Leveraging the capabilities of Power BI, this dashboard connects to the database using the Direct Query mode, ensuring that you have access to real-time, up-to-date information.
 
 #### Key Features:
 
