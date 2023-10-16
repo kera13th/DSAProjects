@@ -2,7 +2,7 @@
 ## Library Management System Database Documentation
 
 ### 1. Introduction
-This document provides an overview and documentation of the Library Management System (LMS) database. The LMS is designed to manage the library's collection of books, book Issuance, and related activities.
+This document provides an overview and documentation of the Library Management System (LMS) database. The LMS is designed to manage the library's collection of books, patrons, book issuance, and related activities.
 
 ### 2. Database Schema
 
